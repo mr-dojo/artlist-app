@@ -1,0 +1,21 @@
+ul.add-item-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 0px;
+  margin: 0px;
+}
+
+li.add-item {
+  margin: 2px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+li.add-item-new {
+  margin: 2px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+}

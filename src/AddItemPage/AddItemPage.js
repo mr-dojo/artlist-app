@@ -1,4 +1,5 @@
 import React from "react";
+import "./AddItemPage.css";
 
 class AddItemPage extends React.Component {
   render() {

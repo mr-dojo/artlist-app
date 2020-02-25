@@ -8,3 +8,12 @@ section.login-section {
   justify-content: center;
   height: 200px;
 }
+
+section:nth-child(even) {
+  background-color: #ddd;
+}
+
+header {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
