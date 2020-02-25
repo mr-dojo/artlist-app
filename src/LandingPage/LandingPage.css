@@ -1,0 +1,10 @@
+section {
+  padding: 5px;
+  background-color: #bbb;
+}
+
+section.login-section {
+  display: flex;
+  justify-content: center;
+  height: 200px;
+}
