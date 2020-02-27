@@ -14,11 +14,10 @@ const renderItemDetails = () => {
   const details = Object.keys(newStaticItem);
   return details.map((detail, key) => (
     <li className="add-item-detail" key={key}>
-      <div>
-        <p>
-          {detail}: {newStaticItem[detail]}
-        </p>
-      </div>
+      <p>
+        <span className="add-item-detail-name">{detail}</span>:{" "}
+        {newStaticItem[detail]}
+      </p>
     </li>
   ));
 };
@@ -130,7 +129,7 @@ class AddItemPage extends React.Component {
           </form>
         </section>
         <section>
-          <h2>current details:</h2>
+          <h2>item details:</h2>
           <ul className="add-item-list">
             {renderItemDetails()}
             <li className="add-item-new">

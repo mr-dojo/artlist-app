@@ -1,7 +1,7 @@
 ul.add-item-list {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   padding: 0px;
   margin: 0px;
 }
@@ -13,15 +13,6 @@ li.add-item {
   border-radius: 5px;
 }
 
-li.add-item-new {
-  margin: 2px;
-  padding: 5px;
-  border: 1px solid black;
-  border-radius: 5px;
-}
-
-li.add-item-detail {
-  border: 1px solid black;
-  margin: 2px;
-  padding: 5px;
+span.add-item-detail-name {
+  font-weight: bold;
 }
