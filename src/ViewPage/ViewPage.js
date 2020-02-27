@@ -78,7 +78,7 @@ class ViewPage extends React.Component {
         </header>
         <section>
           <h2>add filter:</h2>
-          <form onSubmit={e => this.handleSave(e)}>
+          <form onSubmit={e => e.preventDefault()}>
             <div className="add-filter-input-box">
               <label htmlFor="title">*title</label>
               <input

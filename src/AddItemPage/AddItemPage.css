@@ -2,8 +2,8 @@ ul.add-item-list {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  padding: 0px;
-  margin: 0px;
+  /* padding: 0px;
+  margin: 0px; */
 }
 
 li.add-item {

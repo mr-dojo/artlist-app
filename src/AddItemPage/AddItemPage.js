@@ -23,45 +23,13 @@ const renderItemDetails = () => {
 };
 
 class AddItemPage extends React.Component {
-  // handleSave = e => {
-  //   e.preventDefault();
-  //   const title = e.target.title.value;
-  //   const description = e.target.description.value || null;
-  //   const size = e.target.size.value || null;
-  //   const price = e.target.price.value || null;
-  //   const medium = e.target.medium.value || null;
-  //   const location = e.target.location.value || null;
-  //   const availability = e.target.availability.value;
-
-  //   const detailsObject = {
-  //     title,
-  //     description,
-  //     size,
-  //     price,
-  //     medium,
-  //     location,
-  //     availability
-  //   };
-
-  //   const detailKeys = Object.keys(detailsObject);
-
-  //   //This function deletes null details from detailsObject
-  //   (() => {
-  //     for (let i = 0; i < detailKeys.length; i++) {
-  //       if (detailsObject[detailKeys[i]] === null) {
-  //         delete detailsObject[detailKeys[i]];
-  //       }
-  //     }
-  //   })();
-  // };
-
   render() {
     return (
       <>
         <header role="banner">{renderItemTitle()}</header>
         <section>
           <h2>add details:</h2>
-          <form onSubmit={e => this.handleSave(e)}>
+          <form onSubmit={e => e.preventDefault()}>
             <div className="add-item-input-box">
               <label htmlFor="title">*title</label>
               <input
