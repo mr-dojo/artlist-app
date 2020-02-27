@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import Nav from "../Nav/Nav";
 import LandingPage from "../LandingPage/LandingPage";
 import AddItemPage from "../AddItemPage/AddItemPage";
+import ViewPage from "../ViewPage/ViewPage";
 import "./App.css";
 
 class App extends React.Component {
@@ -11,7 +12,7 @@ class App extends React.Component {
       <>
         <Route exact path="/" component={LandingPage} />
         <Route path="/add" component={AddItemPage} />
-        {/* <Route path="/view" component={ViewPage} /> */}
+        <Route path="/view" component={ViewPage} />
       </>
     );
   }
