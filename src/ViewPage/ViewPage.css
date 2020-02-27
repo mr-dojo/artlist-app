@@ -1,0 +1,19 @@
+ul.filter-list {
+  padding-left: 0px;
+}
+
+.filter-detail-name {
+  font-weight: bold;
+}
+
+ul.view-list {
+  padding-left: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+li.view-list-item {
+  border: solid 1px black;
+  width: 170px;
+}
