@@ -61,6 +61,7 @@ class AddItemPage extends React.Component {
       <>
         <header role="banner">{renderItemTitle()}</header>
         <section>
+          <h2>add details:</h2>
           <form onSubmit={e => this.handleSave(e)}>
             <div className="add-item-input-box">
               <label htmlFor="title">*title</label>
@@ -69,7 +70,6 @@ class AddItemPage extends React.Component {
                 name="title"
                 placeholder="title of item"
                 id="title"
-                required
               ></input>
             </div>
             <div className="add-item-input-box">
@@ -126,9 +126,11 @@ class AddItemPage extends React.Component {
               </select>
             </div>
             <button type="submit">save</button>
+            <button type="submit">done</button>
           </form>
         </section>
         <section>
+          <h2>current details:</h2>
           <ul className="add-item-list">
             {renderItemDetails()}
             <li className="add-item-new">
