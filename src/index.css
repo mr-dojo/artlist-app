@@ -13,7 +13,56 @@
   list-style: none;
 }
 
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 25px;
+  margin: 5px;
+}
+
+h3 {
+  font-size: 20px;
+  margin: 2px;
+}
+
+button {
+  margin: 1px;
+  padding: 5px;
+}
+
+option,
+select {
+  margin: 1px;
+  padding: 5px;
+}
+
+input {
+  margin: 1px;
+  padding: 5px;
+}
+
+label {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+section {
+  padding: 20px 5px 20px 5px;
+  background-color: #bbb;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+section:nth-child(even) {
+  background-color: #ddd;
+}
+
+header {
+  margin-top: 100px;
+  margin-bottom: 50px;
 }
