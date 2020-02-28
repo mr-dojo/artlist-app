@@ -147,25 +147,10 @@ class ViewPage extends React.Component {
         </section>
         <section>
           <h2>active filters:</h2>
-          <ul className="filter-list">
-            {renderFilterDetails()}
-            <li className="filter-new">
-              <form className="filter-form">
-                <label htmlFor="filter-attr">+</label>
-                <select name="filter-attr">
-                  <option>New Filter</option>
-                  <option>Description</option>
-                  <option>Size</option>
-                  <option>Price</option>
-                  <option>Medium</option>
-                  <option>Location</option>
-                  <option>Availablility</option>
-                  <option>Style</option>
-                  <option>Quantity</option>
-                </select>
-              </form>
-            </li>
-          </ul>
+          <ul className="filter-list">{renderFilterDetails()}</ul>
+          <button type="button">edit</button>
+          <button type="button">add</button>
+          <button type="delete">remove</button>
         </section>
         <section>
           <h2>organize by:</h2>

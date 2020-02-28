@@ -16,4 +16,6 @@ ul.view-list {
 li.view-list-item {
   border: solid 1px black;
   width: 170px;
+  padding: 5px;
+  margin: 5px;
 }
