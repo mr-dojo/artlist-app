@@ -6,10 +6,10 @@ class Nav extends React.Component {
   render() {
     return (
       <nav role="navigation">
-        <Link to={`/`}>landing page</Link>
-        <Link to={`/add`}>add item</Link>
+        <Link to={`/`}>home</Link>
+        <Link to={`/add`}>add</Link>
         <Link to={`/view`}>view</Link>
-        <Link to={`/view/item`}>view item</Link>
+        <Link to={`/view/item`}>*temp item page*</Link>
       </nav>
     );
   }

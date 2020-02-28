@@ -21,7 +21,7 @@ function LandingPage(props) {
       <section className="landing-page-section">
         <h3>Why did I create Artlist?</h3>
         <p className="landing-page-paragraph">
-          As an artist, I know that it's very hard to keep my invintory in
+          As an artist, I know that it's very hard to keep my inventory in
           order. Knowing what pieces are available and where they are located
           can mean the difference in a sale. I've always wanted a place where I
           could organize and keep track of my work.
