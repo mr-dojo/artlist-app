@@ -15,8 +15,8 @@ const renderItemDetails = () => {
   return details.map((detail, key) => (
     <li className="add-item-detail" key={key}>
       <p>
-        <span className="add-item-detail-name">{detail}</span>:{" "}
-        {newStaticItem[detail]}
+        <span className="add-item-detail-name">{detail}</span>: "
+        {newStaticItem[detail]}"
       </p>
     </li>
   ));
@@ -98,25 +98,10 @@ class AddItemPage extends React.Component {
         </section>
         <section>
           <h2>item details:</h2>
-          <ul className="add-item-list">
-            {renderItemDetails()}
-            <li className="add-item-new">
-              <form className="add-item-form">
-                <label htmlFor="add-item-attr">+</label>
-                <select name="add-item-attr">
-                  <option>Add Details</option>
-                  <option>Description</option>
-                  <option>Size</option>
-                  <option>Price</option>
-                  <option>Medium</option>
-                  <option>Location</option>
-                  <option>Availablility</option>
-                  <option>Style</option>
-                  <option>Quantity</option>
-                </select>
-              </form>
-            </li>
-          </ul>
+          <ul className="add-item-list">{renderItemDetails()}</ul>
+          <button type="button">edit</button>
+          <button type="button">add details</button>
+          <button type="delete">delete</button>
         </section>
       </>
     );
