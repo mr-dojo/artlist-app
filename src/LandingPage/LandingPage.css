@@ -1,0 +1,18 @@
+.landing-page-paragraph {
+  text-align: left;
+  max-width: 500px;
+}
+
+.landing-page-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+a {
+  color: red;
+  font-size: large;
+  font-weight: bolder;
+}
