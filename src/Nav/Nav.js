@@ -8,6 +8,7 @@ class Nav extends React.Component {
       <nav role="navigation">
         <Link to={`/add`}>add item</Link>
         <Link to={`/view`}>view</Link>
+        <Link to={`/view/item`}>view item</Link>
       </nav>
     );
   }

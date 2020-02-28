@@ -4,6 +4,7 @@ import Nav from "../Nav/Nav";
 import LandingPage from "../LandingPage/LandingPage";
 import AddItemPage from "../AddItemPage/AddItemPage";
 import ViewPage from "../ViewPage/ViewPage";
+import ViewItemPage from "../ViewItemPage/ViewItemPage";
 import "./App.css";
 
 class App extends React.Component {
@@ -12,7 +13,8 @@ class App extends React.Component {
       <>
         <Route exact path="/" component={LandingPage} />
         <Route path="/add" component={AddItemPage} />
-        <Route path="/view" component={ViewPage} />
+        <Route exact path="/view" component={ViewPage} />
+        <Route path="/view/item" component={ViewItemPage} />
       </>
     );
   }
