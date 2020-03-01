@@ -1,22 +1,16 @@
 import React from "react";
+import StoreContext from "../StoreContext";
 import "./ViewItemPage.css";
 
-const staticViewItem = {
-  title: "Haleakala",
-  medium: "acrylic",
-  description: "A giant volcano that looks like a mountain",
-  availability: "Available",
-  price: "3000"
-};
-
-const renderItemDetails = () => {
+const renderItemDetails = items => {
+  const i = items[1];
   const itemDetails = {
-    description: staticViewItem.description || null,
-    size: staticViewItem.size || null,
-    price: staticViewItem.price || null,
-    medium: staticViewItem.medium || null,
-    location: staticViewItem.location || null,
-    availability: staticViewItem.availability || null
+    description: i.description || null,
+    size: i.size || null,
+    price: i.price || null,
+    medium: i.medium || null,
+    location: i.location || null,
+    availability: i.availability || null
   };
 
   const itemDetailsKeys = Object.keys(itemDetails);
@@ -42,15 +36,23 @@ const renderItemDetails = () => {
 };
 
 class ViewItemPage extends React.Component {
+  static contextType = StoreContext;
+
+  state = {
+    items: this.context.items
+  };
+
   render() {
+    const items = this.context;
+    console.log(this.context);
     return (
       <>
         <header role="banner">
-          <h1>"{staticViewItem.title}"</h1>
+          <h1>"{items.title}"</h1>
         </header>
         <section>
           <h2>item details:</h2>
-          <ul className="view-item-details-list">{renderItemDetails()}</ul>
+          <ul className="view-item-details-list">{renderItemDetails(items)}</ul>
           <button type="button">edit</button>
           <button type="button">add details</button>
           <button type="delete">delete</button>

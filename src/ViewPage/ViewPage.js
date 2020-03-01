@@ -19,11 +19,49 @@ const renderFilterDetails = () => {
   ));
 };
 
+const renderItemDetails = item => {
+  const i = item;
+  const itemDetails = {
+    description: i.description || null,
+    size: i.size || null,
+    price: i.price || null,
+    medium: i.medium || null,
+    location: i.location || null,
+    availability: i.availability || null
+  };
+
+  const itemDetailsKeys = Object.keys(itemDetails);
+  const deleteNullKeys = () => {
+    for (let i = 0; i < itemDetailsKeys.length; i++) {
+      if (itemDetails[itemDetailsKeys[i]] === null) {
+        delete itemDetails[itemDetailsKeys[i]];
+        itemDetailsKeys.splice(i, 1);
+      }
+    }
+  };
+
+  deleteNullKeys();
+
+  return itemDetailsKeys.map((detail, key) => (
+    <li className="view-item-detail" key={key}>
+      <p>
+        <span className="view-item-detail-name">{detail}</span>: "
+        {itemDetails[detail]}"
+      </p>
+    </li>
+  ));
+};
+
 const renderViewList = items => {
   return items.map((item, i) => {
     return (
       <li className="view-list-item" key={i}>
-        <h3>{item.title}</h3>
+        <h2>"{item.title}"</h2>
+        <h3>item details:</h3>
+        <ul className="view-item-details-list">{renderItemDetails(item)}</ul>
+        <button type="button">edit</button>
+        <button type="button">add details</button>
+        <button type="delete">delete</button>
       </li>
     );
   });
