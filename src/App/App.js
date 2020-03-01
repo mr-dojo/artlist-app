@@ -25,7 +25,6 @@ class App extends React.Component {
       })
       .then(items => {
         this.setState({ items });
-        console.log(this.state.items);
       })
       .catch(error => {
         console.log({ error });
