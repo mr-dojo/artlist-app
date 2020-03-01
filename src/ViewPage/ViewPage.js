@@ -1,4 +1,5 @@
 import React from "react";
+import StoreContext from "../StoreContext";
 import "./ViewPage.css";
 
 const staticViewItems = [
@@ -59,8 +60,8 @@ const renderFilterDetails = () => {
   ));
 };
 
-const renderViewList = () => {
-  return staticViewItems.map((item, i) => {
+const renderViewList = items => {
+  return items.map((item, i) => {
     return (
       <li className="view-list-item" key={i}>
         <h3>{item.title}</h3>
@@ -70,7 +71,10 @@ const renderViewList = () => {
 };
 
 class ViewPage extends React.Component {
+  static contextType = StoreContext;
+
   render() {
+    const { items } = this.context;
     return (
       <>
         <header role="banner">
@@ -163,7 +167,7 @@ class ViewPage extends React.Component {
           <button>Availablility</button>
           <button>Style</button>
           <button>Quantity</button>
-          <ul className="view-list">{renderViewList()}</ul>
+          <ul className="view-list">{renderViewList(items)}</ul>
         </section>
       </>
     );

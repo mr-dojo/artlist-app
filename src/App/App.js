@@ -5,12 +5,14 @@ import LandingPage from "../LandingPage/LandingPage";
 import AddItemPage from "../AddItemPage/AddItemPage";
 import ViewPage from "../ViewPage/ViewPage";
 import ViewItemPage from "../ViewItemPage/ViewItemPage";
+import StoreContext from "../StoreContext";
 import { API_ENDPOINT } from "../config";
 import "./App.css";
 
 class App extends React.Component {
   state = {
-    items: []
+    items: [],
+    filters: []
   };
 
   componentDidMount() {
@@ -41,11 +43,17 @@ class App extends React.Component {
   }
 
   render() {
+    const contextValue = {
+      items: this.state.items,
+      filters: this.state.filters
+    };
     return (
-      <div className="App">
-        <Nav />
-        <main>{this.renderMainRoutes()}</main>
-      </div>
+      <StoreContext.Provider value={contextValue}>
+        <div className="App">
+          <Nav />
+          <main>{this.renderMainRoutes()}</main>
+        </div>
+      </StoreContext.Provider>
     );
   }
 }
