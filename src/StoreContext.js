@@ -1,8 +1,8 @@
 const React = require("react");
 
-const appContext = React.createContext({
+const StoreContext = React.createContext({
   items: [],
   filters: []
 });
 
-export default appContext;
+export default StoreContext;
