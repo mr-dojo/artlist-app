@@ -12,7 +12,8 @@ import "./App.css";
 class App extends React.Component {
   state = {
     items: [],
-    filters: []
+    filters: [],
+    filteredItems: []
   };
 
   componentDidMount() {
@@ -30,27 +31,34 @@ class App extends React.Component {
         console.log({ error });
       });
   }
-  renderMainRoutes() {
-    return (
-      <>
-        <Route exact path="/" component={LandingPage} />
-        <Route path="/add" component={AddItemPage} />
-        <Route exact path="/view" component={ViewPage} />
-        <Route path="/view/item" component={ViewItemPage} />
-      </>
+
+  filterTitle = newItems => {
+    this.setState({
+      filteredItems: newItems
+    });
+    console.log(newItems);
+    console.log(
+      `After filterTitle ran state.filteredItems = >>>${this.state.filteredItems}<<<`
     );
-  }
+  };
 
   render() {
     const contextValue = {
       items: this.state.items,
-      filters: this.state.filters
+      filters: this.state.filters,
+      filterTitle: this.filterTitle
     };
+
     return (
       <StoreContext.Provider value={contextValue}>
         <div className="App">
           <Nav />
-          <main>{this.renderMainRoutes()}</main>
+          <main>
+            <Route exact path="/" component={LandingPage} />
+            <Route path="/add" component={AddItemPage} />
+            <Route exact path="/view" component={ViewPage} />
+            <Route path="/view/item" component={ViewItemPage} />
+          </main>
         </div>
       </StoreContext.Provider>
     );

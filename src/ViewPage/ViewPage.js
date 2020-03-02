@@ -7,6 +7,15 @@ const activeFilters = {
   availability: "Available"
 };
 
+// const handleFilterSubmit = (e, items) => {
+//   e.preventDefault();
+//   const filterResults = items.filter(item =>
+//     item.title.includes(e.target.title.value)
+//   );
+//   this.context.filterTitle(filterResults);
+//   console.log(filterResults);
+// };
+
 const renderFilterDetails = () => {
   const details = Object.keys(activeFilters);
   return details.map((detail, key) => (
@@ -67,11 +76,21 @@ const renderViewList = items => {
   });
 };
 
+const handleFilterSubmit = (e, items, filterTitle) => {
+  e.preventDefault();
+  const filterResults = items.filter(item =>
+    item.title.includes(e.target.title.value)
+  );
+  filterTitle(filterResults);
+  console.log(filterResults);
+};
+
 class ViewPage extends React.Component {
   static contextType = StoreContext;
 
   render() {
-    const { items } = this.context;
+    const { items, filterTitle } = this.context;
+
     return (
       <>
         <header role="banner">
@@ -79,15 +98,14 @@ class ViewPage extends React.Component {
         </header>
         <section>
           <h2>add filter:</h2>
-          <form onSubmit={e => e.preventDefault()}>
+          <form onSubmit={e => handleFilterSubmit(e, items, filterTitle)}>
             <div className="add-filter-input-box">
-              <label htmlFor="title">*title</label>
+              <label htmlFor="title">title</label>
               <input
                 type="text"
                 name="title"
                 placeholder="title of item"
                 id="title"
-                required
               ></input>
             </div>
             <div className="add-filter-input-box">
@@ -166,9 +184,12 @@ class ViewPage extends React.Component {
           <button>Quantity</button>
           <ul className="view-list">{renderViewList(items)}</ul>
         </section>
+        )}
       </>
     );
   }
 }
+
+ViewPage.contextType = StoreContext;
 
 export default ViewPage;
