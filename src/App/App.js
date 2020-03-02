@@ -32,21 +32,30 @@ class App extends React.Component {
       });
   }
 
-  filterTitle = newItems => {
+  filterTitle = filteredItems => {
     this.setState({
-      filteredItems: newItems
+      filteredItems: filteredItems
     });
-    console.log(newItems);
+    console.log(filteredItems);
     console.log(
       `After filterTitle ran state.filteredItems = >>>${this.state.filteredItems}<<<`
     );
+  };
+
+  addNewItem = newItem => {
+    this.setState({
+      items: [...this.state.items, newItem]
+    });
+    console.log(`addNewItem() on App.js RAN with value = ${newItem}`);
+    console.log(this.state.items);
   };
 
   render() {
     const contextValue = {
       items: this.state.items,
       filters: this.state.filters,
-      filterTitle: this.filterTitle
+      filterTitle: this.filterTitle,
+      addNewItem: this.addNewItem
     };
 
     return (
