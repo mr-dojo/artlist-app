@@ -2,7 +2,9 @@ const React = require("react");
 
 const StoreContext = React.createContext({
   items: [],
-  filters: []
+  filters: [],
+  filteredItems: [],
+  filterTitle: () => {}
 });
 
 export default StoreContext;
