@@ -57,7 +57,6 @@ const renderViewList = items => {
     return (
       <li className="view-list-item" key={i}>
         <h2>"{item.title}"</h2>
-        <h3>item details:</h3>
         <ul className="view-item-details-list">{renderItemDetails(item)}</ul>
         <button type="button">edit</button>
         <button type="button">add details</button>
@@ -73,7 +72,6 @@ const handleFilterSubmit = (e, items, filterTitle) => {
     item.title.includes(e.target.title.value)
   );
   filterTitle(filterResults);
-  console.log(filterResults);
 };
 
 class ViewPage extends React.Component {
@@ -175,7 +173,6 @@ class ViewPage extends React.Component {
           <button>Quantity</button>
           <ul className="view-list">{renderViewList(items)}</ul>
         </section>
-        )}
       </>
     );
   }
