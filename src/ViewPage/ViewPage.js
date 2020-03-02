@@ -7,15 +7,6 @@ const activeFilters = {
   availability: "Available"
 };
 
-// const handleFilterSubmit = (e, items) => {
-//   e.preventDefault();
-//   const filterResults = items.filter(item =>
-//     item.title.includes(e.target.title.value)
-//   );
-//   this.context.filterTitle(filterResults);
-//   console.log(filterResults);
-// };
-
 const renderFilterDetails = () => {
   const details = Object.keys(activeFilters);
   return details.map((detail, key) => (
