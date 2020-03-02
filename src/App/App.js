@@ -36,18 +36,12 @@ class App extends React.Component {
     this.setState({
       filteredItems: filteredItems
     });
-    console.log(filteredItems);
-    console.log(
-      `After filterTitle ran state.filteredItems = >>>${this.state.filteredItems}<<<`
-    );
   };
 
   addNewItem = newItem => {
     this.setState({
       items: [...this.state.items, newItem]
     });
-    console.log(`addNewItem() on App.js RAN with value = ${newItem}`);
-    console.log(this.state.items);
   };
 
   render() {
