@@ -8,8 +8,7 @@ class Nav extends React.Component {
       <nav role="navigation">
         <Link to={`/`}>home</Link>
         <Link to={`/add`}>add</Link>
-        <Link to={`/view`}>view</Link>
-        <Link to={`/view/item`}>*temp item page*</Link>
+        <Link to={`/view`}>all</Link>
       </nav>
     );
   }

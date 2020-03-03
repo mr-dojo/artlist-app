@@ -74,6 +74,7 @@ class AddItemPage extends React.Component {
         this.setState({
           newItem: response
         });
+        this.props.history.push(`/view/${response.id}`);
       })
       .catch(err => {
         throw new Error(err);
