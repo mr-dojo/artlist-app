@@ -59,7 +59,7 @@ class App extends React.Component {
             <Route exact path="/" component={LandingPage} />
             <Route path="/add" component={AddItemPage} />
             <Route exact path="/view" component={ViewPage} />
-            <Route path="/view/item" component={ViewItemPage} />
+            <Route path="/view/:item_id" component={ViewItemPage} />
           </main>
         </div>
       </StoreContext.Provider>

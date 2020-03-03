@@ -1,5 +1,6 @@
 import React from "react";
 import StoreContext from "../StoreContext";
+import { Link } from "react-router-dom";
 import ErrorCheck from "../ErrorCheck";
 import "./ViewPage.css";
 
@@ -46,7 +47,7 @@ class ViewPage extends React.Component {
           <ul className="view-item-details-list">
             {this.renderItemDetails(item)}
           </ul>
-          <button type="button">edit</button>
+          <Link to={`/view/${item.id}`}>view item</Link>
           <button type="button">add details</button>
           <button type="delete">delete</button>
         </li>
