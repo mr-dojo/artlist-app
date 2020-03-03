@@ -1,5 +1,6 @@
 import React from "react";
 import StoreContext from "../StoreContext";
+import ErrorCheck from "../ErrorCheck";
 import "./ViewPage.css";
 
 class ViewPage extends React.Component {
@@ -74,7 +75,7 @@ class ViewPage extends React.Component {
       : items;
 
     return (
-      <>
+      <ErrorCheck>
         <header role="banner">
           <h1>view list</h1>
         </header>
@@ -89,59 +90,6 @@ class ViewPage extends React.Component {
                 placeholder="title of item"
                 id="title"
               ></input>
-            </div>
-            <div className="add-filter-input-box">
-              <label htmlFor="description">description</label>
-              <input
-                type="text"
-                name="description"
-                placeholder="eg: green turtle"
-                id="description"
-              ></input>
-            </div>
-            <div className="add-filter-input-box">
-              <label htmlFor="size">size</label>
-              <input
-                type="text"
-                name="size"
-                placeholder={`eg: 22" x 18"`}
-                id="size"
-              ></input>
-            </div>
-            <div className="add-filter-input-box">
-              <label htmlFor="price">price</label>
-              <input
-                type="number"
-                name="price"
-                placeholder="eg: 256.99"
-                id="price"
-              ></input>
-            </div>
-            <div className="add-filter-input-box">
-              <label htmlFor="medium">medium</label>
-              <input
-                type="text"
-                name="medium"
-                placeholder="eg: iron sculpture"
-                id="medium"
-              ></input>
-            </div>
-            <div className="add-filter-input-box">
-              <label htmlFor="location">location</label>
-              <input
-                type="text"
-                name="location"
-                placeholder="eg: SoAndSo Gallery Paia, HI"
-                id="location"
-              ></input>
-            </div>
-            <div className="add-filter-input-box">
-              <label htmlFor="availability">availability</label>
-              <select id="availability">
-                <option value="available">available</option>
-                <option value="unavailable">unavailable</option>
-                <option value="complicated">complicated</option>
-              </select>
             </div>
             <button type="submit">save</button>
           </form>
@@ -166,7 +114,7 @@ class ViewPage extends React.Component {
           <button>Quantity</button>
           <ul className="view-list">{this.renderViewList(itemsToUse)}</ul>
         </section>
-      </>
+      </ErrorCheck>
     );
   }
 }
