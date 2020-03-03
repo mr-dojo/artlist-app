@@ -3,83 +3,92 @@ import StoreContext from "../StoreContext";
 import { API_ENDPOINT } from "../config";
 import "./AddItemPage.css";
 
-const newStaticItem = {
-  title: "Lahaina Fish",
-  medium: "mixed media",
-  description: "a turtle in a sea of blue"
-};
-
-const renderItemTitle = () =>
-  newStaticItem.title ? <h1>"{newStaticItem.title}"</h1> : <h1>add an item</h1>;
-
-const renderItemDetails = () => {
-  const details = Object.keys(newStaticItem);
-  return details.map((detail, key) => (
-    <li className="add-item-detail" key={key}>
-      <p>
-        <span className="add-item-detail-name">{detail}</span>: "
-        {newStaticItem[detail]}"
-      </p>
-    </li>
-  ));
-};
-
-const handleNewItemSubmit = (e, addNewItem) => {
-  e.preventDefault();
-  const allDetails = {
-    title: e.target.title.value || null,
-    description: e.target.description.value || null,
-    medium: e.target.medium.value || null,
-    location: e.target.location.value || null,
-    price: e.target.price.value || null,
-    size: e.target.size.value || null,
-    availability: e.target.availability.value || null
-  };
-
-  const itemDetailsKeys = Object.keys(allDetails);
-
-  const deleteNullKeys = () => {
-    for (let i = 0; i < itemDetailsKeys.length; i++) {
-      if (allDetails[itemDetailsKeys[i]] === null) {
-        delete allDetails[itemDetailsKeys[i]];
-      }
-    }
-  };
-
-  deleteNullKeys();
-
-  fetch(`${API_ENDPOINT}/list`, {
-    method: "POST",
-    body: JSON.stringify(allDetails),
-    headers: {
-      "content-type": "application/json"
-    }
-  })
-    .then(response => {
-      if (!response.ok) {
-        console.log(response);
-      }
-      return response.json();
-    })
-    .then(response => {
-      addNewItem(response);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-};
-
 class AddItemPage extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      newItem: {}
+    };
+  }
+  renderItemTitle = () =>
+    Object.keys(this.state.newItem).length ? (
+      <h1>"{this.state.newItem.title}"</h1>
+    ) : (
+      <h1>add an item</h1>
+    );
+
+  renderItemDetails = () => {
+    return Object.keys(this.state.newItem).map((detail, key) =>
+      this.state.newItem[detail] ? (
+        <li className="add-item-detail" key={key}>
+          <p>
+            <span className="add-item-detail-name">{detail}</span>: "
+            {this.state.newItem[detail]}"
+          </p>
+        </li>
+      ) : (
+        ""
+      )
+    );
+  };
+
+  handleNewItemSubmit = e => {
+    e.preventDefault();
+    const allDetails = {
+      title: e.target.title.value || null,
+      description: e.target.description.value || null,
+      medium: e.target.medium.value || null,
+      location: e.target.location.value || null,
+      price: e.target.price.value || null,
+      size: e.target.size.value || null,
+      availability: e.target.availability.value || null
+    };
+
+    const itemDetailsKeys = Object.keys(allDetails);
+
+    const deleteNullKeys = () => {
+      for (let i = 0; i < itemDetailsKeys.length; i++) {
+        if (allDetails[itemDetailsKeys[i]] === null) {
+          delete allDetails[itemDetailsKeys[i]];
+        }
+      }
+    };
+
+    deleteNullKeys();
+
+    fetch(`${API_ENDPOINT}/list`, {
+      method: "POST",
+      body: JSON.stringify(allDetails),
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+      .then(response => {
+        if (!response.ok) {
+          return new Error(response);
+        }
+        return response.json();
+      })
+      .then(response => {
+        this.context.addNewItem(response);
+        this.setState({
+          newItem: response
+        });
+      })
+      .catch(err => {
+        throw new Error(err);
+      });
+  };
+
   static contextType = StoreContext;
 
   render() {
-    const { addNewItem } = this.context;
     return (
       <>
-        <header role="banner">{renderItemTitle()}</header>
+        <header role="banner">{this.renderItemTitle()}</header>
         <section>
           <h2>add details:</h2>
-          <form onSubmit={e => handleNewItemSubmit(e, addNewItem)}>
+          <form onSubmit={e => this.handleNewItemSubmit(e)}>
             <div className="add-item-input-box">
               <label htmlFor="title">*title</label>
               <input
@@ -148,7 +157,7 @@ class AddItemPage extends React.Component {
         </section>
         <section>
           <h2>item details:</h2>
-          <ul className="add-item-list">{renderItemDetails()}</ul>
+          <ul className="add-item-list">{this.renderItemDetails()}</ul>
           <button type="button">edit</button>
           <button type="button">add details</button>
           <button type="delete">delete</button>
