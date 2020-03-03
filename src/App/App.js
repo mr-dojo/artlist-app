@@ -44,11 +44,21 @@ class App extends React.Component {
     });
   };
 
+  deleteItem = item_id => {
+    const itemsAfterDelete = this.state.items.filter(
+      item => item.id !== item_id
+    );
+    this.setState({
+      items: [...itemsAfterDelete]
+    });
+  };
+
   render() {
     const contextValue = {
       items: this.state.items,
       filterTitle: this.filterTitle,
-      addNewItem: this.addNewItem
+      addNewItem: this.addNewItem,
+      deleteItem: this.deleteItem
     };
 
     return (
