@@ -5,6 +5,7 @@ import LandingPage from "../LandingPage/LandingPage";
 import AddItemPage from "../AddItemPage/AddItemPage";
 import ViewPage from "../ViewPage/ViewPage";
 import ViewItemPage from "../ViewItemPage/ViewItemPage";
+import EditItemPage from "../EditItemPage/EditItemPage";
 import StoreContext from "../StoreContext";
 import { API_ENDPOINT } from "../config";
 import "./App.css";
@@ -70,6 +71,7 @@ class App extends React.Component {
             <Route path="/add" component={AddItemPage} />
             <Route exact path="/view" component={ViewPage} />
             <Route path="/view/:item_id" component={ViewItemPage} />
+            <Route path="/edit/:item_id" component={EditItemPage} />
           </main>
         </div>
       </StoreContext.Provider>
