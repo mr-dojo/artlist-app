@@ -1,6 +1,7 @@
 import React from "react";
 import StoreContext from "../StoreContext";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { findItem } from "../item-helper";
 import "./ViewItemPage.css";
 
@@ -28,6 +29,7 @@ class ViewItemPage extends React.Component {
 
   render() {
     const { item_id } = this.props.match.params;
+    console.log(this.context.items);
     return (
       <>
         <header role="banner">
@@ -38,8 +40,7 @@ class ViewItemPage extends React.Component {
           <ul className="view-item-details-list">
             {this.renderItemDetails(item_id)}
           </ul>
-          <button type="button">edit</button>
-          <button type="button">add details</button>
+          <Link to={`/edit/${item_id}`}>edit</Link>
           <button type="delete">delete</button>
         </section>
       </>
