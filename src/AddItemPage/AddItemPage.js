@@ -160,7 +160,6 @@ class AddItemPage extends React.Component {
           <h2>item details:</h2>
           <ul className="add-item-list">{this.renderItemDetails()}</ul>
           <button type="button">edit</button>
-          <button type="button">add details</button>
           <button type="delete">delete</button>
         </section>
       </>
