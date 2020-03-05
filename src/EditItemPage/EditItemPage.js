@@ -65,7 +65,7 @@ class EditItemPage extends React.Component {
         return response.json();
       })
       .then(response => {
-        //Add new update context function
+        this.context.updateItem(item_id, response[0]);
         this.props.history.push(`/view/${response[0].id}`);
       })
       .catch(err => {
@@ -78,7 +78,9 @@ class EditItemPage extends React.Component {
   render() {
     return (
       <>
-        <header role="banner">{this.state.editItem.title}</header>
+        <header role="banner">
+          <h1>{this.state.editItem.title}</h1>
+        </header>
         <section>
           <h2>add details:</h2>
           <form onSubmit={e => this.handleItemSubmit(e)}>
