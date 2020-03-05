@@ -26,6 +26,7 @@ class App extends React.Component {
         return res.json();
       })
       .then(items => {
+        console.log("componentDidMount() ran and fetch got to the setState");
         this.setState({ items });
       })
       .catch(error => {
@@ -54,12 +55,27 @@ class App extends React.Component {
     });
   };
 
+  updateItem = (item_id, updatedItem) => {
+    const itemsAfterUpdate = [];
+    this.state.items.forEach(item => {
+      if (parseInt(item.id) !== parseInt(item_id)) {
+        itemsAfterUpdate.push(item);
+      } else {
+        itemsAfterUpdate.push(updatedItem);
+      }
+    });
+    this.setState({
+      items: [...itemsAfterUpdate]
+    });
+  };
+
   render() {
     const contextValue = {
       items: this.state.items,
       filterTitle: this.filterTitle,
       addNewItem: this.addNewItem,
-      deleteItem: this.deleteItem
+      deleteItem: this.deleteItem,
+      updateItem: this.updateItem
     };
 
     return (
