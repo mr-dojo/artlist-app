@@ -10,39 +10,29 @@ function LandingPage(props) {
       </header>
 
       <section className="landing-page-section">
-        <h2>The current state of Artlist</h2>
-        <p className="landing-page-paragraph">
-          In its current state, the application is "static" meaning that the
-          functionality isn't built yet. This is a proof of concept and will be
-          used to get feedback on the idea and layout of the app.
-        </p>
-      </section>
-
-      <section className="landing-page-section">
         <h3>Why did I create Artlist?</h3>
         <p className="landing-page-paragraph">
-          As an artist, I know that it's very hard to keep my inventory in
-          order. Knowing what pieces are available and where they are located
-          can mean the difference in a sale. I've always wanted a place where I
-          could organize and keep track of my work.
+          To help artists keep track of their work.
         </p>
       </section>
 
       <section className="landing-page-section">
-        <h3>What does it do for you?</h3>
-        <p className="landing-page-paragraph">
-          Artlist helps you make customized, printable pdf lists of your
-          artwork. It shows you, at-a-glance, what you have and all available
-          information on each piece.
-        </p>
-      </section>
-
-      <section className="landing-page-section">
-        <h3>How does it do it?</h3>
-        <p className="landing-page-paragraph">
-          Create entries with as many details as you can. Then use the "view"
-          page to filter and create lists
-        </p>
+        <h3>How to use it</h3>
+        <ul>
+          <li>
+            <p>- Store artwork titles along with details about each entry</p>
+          </li>
+          <li>
+            <p>
+              - View a list of all your artwork and organize it by the details
+            </p>
+          </li>
+          <li>
+            <p>
+              - Create filtered lists of your artwork for your own reference
+            </p>
+          </li>
+        </ul>
       </section>
 
       <section className="landing-page-section">
