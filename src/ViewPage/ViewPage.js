@@ -48,8 +48,12 @@ class ViewPage extends React.Component {
           <ul className="view-item-details-list">
             {this.renderItemDetails(item)}
           </ul>
-          <Link to={`/view/${item.id}`}>view item</Link>
-          <button type="button">add details</button>
+          <Link to={`/view/${item.id}`}>
+            <button type="button">view</button>
+          </Link>
+          <Link to={`/edit/${item.id}`}>
+            <button type="button">edit</button>
+          </Link>
           <button type="delete" onClick={e => this.handleDelete(e, item.id)}>
             delete
           </button>
@@ -84,7 +88,7 @@ class ViewPage extends React.Component {
     activeFilters.title = e.target.title.value;
     this.setState({
       filteredItems: this.context.items.filter(item =>
-        item.title.includes(activeFilters.title)
+        item.title.toLowerCase().includes(activeFilters.title.toLowerCase())
       ),
       activeFilters
     });
@@ -101,7 +105,7 @@ class ViewPage extends React.Component {
     return (
       <ErrorCheck>
         <header role="banner">
-          <h1>view list</h1>
+          <h1>all items</h1>
         </header>
         <section>
           <h2>add filter:</h2>
@@ -121,21 +125,8 @@ class ViewPage extends React.Component {
         <section>
           <h2>active filters:</h2>
           <ul className="filter-list">{this.renderFilterDetails()}</ul>
-          <button type="button">edit</button>
-          <button type="button">add</button>
-          <button type="delete">remove</button>
         </section>
         <section>
-          <h2>organize by:</h2>
-          <button>Title</button>
-          <button>Description</button>
-          <button>Size</button>
-          <button>Price</button>
-          <button>Medium</button>
-          <button>Location</button>
-          <button>Availablility</button>
-          <button>Style</button>
-          <button>Quantity</button>
           <ul className="view-list">{this.renderViewList(itemsToUse)}</ul>
         </section>
       </ErrorCheck>
