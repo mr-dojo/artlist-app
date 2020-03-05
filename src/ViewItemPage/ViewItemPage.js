@@ -3,6 +3,7 @@ import StoreContext from "../StoreContext";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { findItem } from "../item-helper";
+import { API_ENDPOINT } from "../config";
 import "./ViewItemPage.css";
 
 class ViewItemPage extends React.Component {
@@ -27,9 +28,30 @@ class ViewItemPage extends React.Component {
     ));
   };
 
+  handleDelete = (e, item_id) => {
+    e.preventDefault();
+    console.log(API_ENDPOINT);
+    fetch(`${API_ENDPOINT}/list/${item_id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+      .then(res => {
+        if (!res.ok) return res.json().then(e => new Error(e));
+        return;
+      })
+      .then(() => {
+        this.context.deleteItem(item_id);
+        this.props.history.push(`/view`);
+      })
+      .catch(error => {
+        console.error({ error });
+      });
+  };
+
   render() {
     const { item_id } = this.props.match.params;
-    console.log(this.context.items);
     return (
       <>
         <header role="banner">
@@ -40,8 +62,12 @@ class ViewItemPage extends React.Component {
           <ul className="view-item-details-list">
             {this.renderItemDetails(item_id)}
           </ul>
-          <Link to={`/edit/${item_id}`}>edit</Link>
-          <button type="delete">delete</button>
+          <Link to={`/edit/${item_id}`}>
+            <button type="button">edit</button>
+          </Link>
+          <button type="delete" onClick={e => this.handleDelete(e, item_id)}>
+            delete
+          </button>
         </section>
       </>
     );
