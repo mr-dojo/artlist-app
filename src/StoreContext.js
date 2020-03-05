@@ -4,7 +4,8 @@ const StoreContext = React.createContext({
   items: [],
   filterTitle: () => {},
   addNewItem: () => {},
-  deleteItem: () => {}
+  deleteItem: () => {},
+  updateItem: () => {}
 });
 
 export default StoreContext;
