@@ -17,21 +17,6 @@ class AddItemPage extends React.Component {
       <h1>add an item</h1>
     );
 
-  renderItemDetails = () => {
-    return Object.keys(this.state.newItem).map((detail, key) =>
-      this.state.newItem[detail] ? (
-        <li className="add-item-detail" key={key}>
-          <p>
-            <span className="add-item-detail-name">{detail}</span>: "
-            {this.state.newItem[detail]}"
-          </p>
-        </li>
-      ) : (
-        ""
-      )
-    );
-  };
-
   handleNewItemSubmit = e => {
     e.preventDefault();
     const allDetails = {
@@ -155,12 +140,6 @@ class AddItemPage extends React.Component {
             <button type="submit">save</button>
             <button type="submit">done</button>
           </form>
-        </section>
-        <section>
-          <h2>item details:</h2>
-          <ul className="add-item-list">{this.renderItemDetails()}</ul>
-          <button type="button">edit</button>
-          <button type="delete">delete</button>
         </section>
       </>
     );
