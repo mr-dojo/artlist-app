@@ -84,23 +84,23 @@ class ViewPage extends React.Component {
 
   handleFilterSubmit = e => {
     e.preventDefault();
-    const activeFilters = { ...this.state.activeFilters };
-    activeFilters.title = e.target.title.value;
-    this.setState({
-      filteredItems: this.context.items.filter(item =>
-        item.title.toLowerCase().includes(activeFilters.title.toLowerCase())
-      ),
-      activeFilters
-    });
+    let titleValue = e.target.title.value;
+
+    const newFilter = {
+      title: titleValue
+    };
+
+    console.log(newFilter);
+    console.log(titleValue);
+
+    this.context.itemsFilter(newFilter, this.context.items);
   };
 
   static contextType = StoreContext;
 
   render() {
-    const { items } = this.context;
-    const itemsToUse = this.state.filteredItems.length
-      ? this.state.filteredItems
-      : items;
+    const { items, filteredItems } = this.context;
+    const itemsToUse = filteredItems.length ? filteredItems : items;
 
     return (
       <ErrorCheck>

@@ -13,7 +13,6 @@ import "./App.css";
 class App extends React.Component {
   state = {
     items: [],
-    filters: [],
     filteredItems: []
   };
 
@@ -26,7 +25,6 @@ class App extends React.Component {
         return res.json();
       })
       .then(items => {
-        console.log("componentDidMount() ran and fetch got to the setState");
         this.setState({ items });
       })
       .catch(error => {
@@ -34,10 +32,23 @@ class App extends React.Component {
       });
   }
 
-  filterTitle = filteredItems => {
-    this.setState({
-      filteredItems: filteredItems
+  itemsFilter = (activeFilters, items) => {
+    let returnItems = [...items];
+    let filterKeys = Object.keys(activeFilters);
+
+    filterKeys.forEach(key => {
+      returnItems = returnItems.filter(item => {
+        return item.title
+          .toLowerCase()
+          .includes(activeFilters.title.toLowerCase());
+      });
     });
+
+    this.setState({
+      filteredItems: returnItems
+    });
+
+    return returnItems;
   };
 
   addNewItem = newItem => {
@@ -72,7 +83,8 @@ class App extends React.Component {
   render() {
     const contextValue = {
       items: this.state.items,
-      filterTitle: this.filterTitle,
+      itemsFilter: this.itemsFilter,
+      filteredItems: this.state.filteredItems,
       addNewItem: this.addNewItem,
       deleteItem: this.deleteItem,
       updateItem: this.updateItem

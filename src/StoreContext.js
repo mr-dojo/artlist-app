@@ -2,7 +2,8 @@ const React = require("react");
 
 const StoreContext = React.createContext({
   items: [],
-  filterTitle: () => {},
+  filteredItems: [],
+  itemsFilter: () => {},
   addNewItem: () => {},
   deleteItem: () => {},
   updateItem: () => {}
