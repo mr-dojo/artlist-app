@@ -90,7 +90,8 @@ class ViewPage extends React.Component {
       description: e.target.description.value || undefined,
       size: e.target.size.value || undefined,
       medium: e.target.medium.value || undefined,
-      location: e.target.location.value || undefined
+      location: e.target.location.value || undefined,
+      availability: e.target.availability.value || undefined
     };
 
     let noNullFilters = {};
@@ -172,6 +173,7 @@ class ViewPage extends React.Component {
             <div className="add-item-input-box">
               <label htmlFor="availability">availability</label>
               <select id="availability">
+                <option value=""></option>
                 <option value="Available">Available</option>
                 <option value="Unavailable">Unavailable</option>
                 <option value="Complicated">Complicated</option>
