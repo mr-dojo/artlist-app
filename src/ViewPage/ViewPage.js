@@ -84,23 +84,37 @@ class ViewPage extends React.Component {
 
   handleFilterSubmit = e => {
     e.preventDefault();
-    let titleValue = e.target.title.value;
 
-    const newFilter = {
-      title: titleValue
+    let allFilters = {
+      title: e.target.title.value || undefined,
+      description: e.target.description.value || undefined,
+      size: e.target.size.value || undefined,
+      medium: e.target.medium.value || undefined,
+      location: e.target.location.value || undefined
     };
 
-    console.log(newFilter);
-    console.log(titleValue);
+    let noNullFilters = {};
 
-    this.context.itemsFilter(newFilter, this.context.items);
+    Object.keys(allFilters).forEach(key => {
+      if (allFilters[key] !== undefined || null) {
+        noNullFilters[key] = allFilters[key];
+      }
+    });
+
+    this.setState({
+      activeFilters: noNullFilters
+    });
+
+    this.context.itemsFilter(allFilters, this.context.items);
   };
 
   static contextType = StoreContext;
 
   render() {
     const { items, filteredItems } = this.context;
-    const itemsToUse = filteredItems.length ? filteredItems : items;
+    const itemsToUse = Object.keys(this.state.activeFilters).length
+      ? filteredItems
+      : items;
 
     return (
       <ErrorCheck>
@@ -118,6 +132,50 @@ class ViewPage extends React.Component {
                 placeholder="title of item"
                 id="title"
               ></input>
+            </div>
+            <div className="add-item-input-box">
+              <label htmlFor="description">description</label>
+              <input
+                type="text"
+                name="description"
+                placeholder="eg: green turtle"
+                id="description"
+              ></input>
+            </div>
+            <div className="add-item-input-box">
+              <label htmlFor="size">size</label>
+              <input
+                type="text"
+                name="size"
+                placeholder={`eg: 22" x 18"`}
+                id="size"
+              ></input>
+            </div>
+            <div className="add-item-input-box">
+              <label htmlFor="medium">medium</label>
+              <input
+                type="text"
+                name="medium"
+                placeholder="eg: iron sculpture"
+                id="medium"
+              ></input>
+            </div>
+            <div className="add-item-input-box">
+              <label htmlFor="location">location</label>
+              <input
+                type="text"
+                name="location"
+                placeholder="eg: SoAndSo Gallery Paia, HI"
+                id="location"
+              ></input>
+            </div>
+            <div className="add-item-input-box">
+              <label htmlFor="availability">availability</label>
+              <select id="availability">
+                <option value="Available">Available</option>
+                <option value="Unavailable">Unavailable</option>
+                <option value="Complicated">Complicated</option>
+              </select>
             </div>
             <button type="submit">save</button>
           </form>
