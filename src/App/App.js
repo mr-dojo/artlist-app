@@ -36,11 +36,18 @@ class App extends React.Component {
     let returnItems = [...items];
     let filterKeys = Object.keys(activeFilters);
 
+    filterKeys = filterKeys.filter(key => activeFilters[key] !== undefined);
+
     filterKeys.forEach(key => {
       returnItems = returnItems.filter(item => {
-        return item.title
-          .toLowerCase()
-          .includes(activeFilters.title.toLowerCase());
+        console.log(item[key]);
+        if (item[key]) {
+          return item[key]
+            .toLowerCase()
+            .includes(activeFilters[key].toLowerCase());
+        } else {
+          return false;
+        }
       });
     });
 
