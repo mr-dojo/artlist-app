@@ -7,13 +7,13 @@ class Nav extends React.Component {
     return (
       <nav role="navigation">
         <Link to={`/`}>
-          <button type="button">home</button>
+          <button type="button">HOME</button>
         </Link>
         <Link to={`/view`}>
-          <button type="button">all</button>
+          <button type="button">ALL</button>
         </Link>
         <Link to={`/add`}>
-          <button type="button">add</button>
+          <button type="button">ADD</button>
         </Link>
       </nav>
     );
