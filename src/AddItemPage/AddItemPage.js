@@ -14,7 +14,7 @@ class AddItemPage extends React.Component {
     Object.keys(this.state.newItem).length ? (
       <h1>"{this.state.newItem.title}"</h1>
     ) : (
-      <h1>add an item</h1>
+      <h1>new item</h1>
     );
 
   handleNewItemSubmit = e => {
@@ -59,7 +59,7 @@ class AddItemPage extends React.Component {
         this.setState({
           newItem: response
         });
-        this.props.history.push(`/view/${response.id}`);
+        this.props.history.push(`/view/`);
       })
       .catch(err => {
         throw new Error(err);
@@ -77,68 +77,38 @@ class AddItemPage extends React.Component {
           <form onSubmit={e => this.handleNewItemSubmit(e)}>
             <div className="add-item-input-box">
               <label htmlFor="title">*title</label>
-              <input
-                type="text"
-                name="title"
-                placeholder="title of item"
-                id="title"
-              ></input>
+              <input type="text" name="title" id="title" required></input>
             </div>
             <div className="add-item-input-box">
               <label htmlFor="description">description</label>
-              <input
-                type="text"
-                name="description"
-                placeholder="eg: green turtle"
-                id="description"
-              ></input>
+              <input type="text" name="description" id="description"></input>
             </div>
             <div className="add-item-input-box">
               <label htmlFor="size">size</label>
-              <input
-                type="text"
-                name="size"
-                placeholder={`eg: 22" x 18"`}
-                id="size"
-              ></input>
+              <input type="text" name="size" id="size"></input>
             </div>
             <div className="add-item-input-box">
               <label htmlFor="price">price</label>
-              <input
-                type="number"
-                name="price"
-                placeholder="eg: 256.99"
-                id="price"
-              ></input>
+              <input type="number" name="price" id="price"></input>
             </div>
             <div className="add-item-input-box">
               <label htmlFor="medium">medium</label>
-              <input
-                type="text"
-                name="medium"
-                placeholder="eg: iron sculpture"
-                id="medium"
-              ></input>
+              <input type="text" name="medium" id="medium"></input>
             </div>
             <div className="add-item-input-box">
               <label htmlFor="location">location</label>
-              <input
-                type="text"
-                name="location"
-                placeholder="eg: SoAndSo Gallery Paia, HI"
-                id="location"
-              ></input>
+              <input type="text" name="location" id="location"></input>
             </div>
             <div className="add-item-input-box">
               <label htmlFor="availability">availability</label>
               <select id="availability">
+                <option value=""></option>
                 <option value="Available">Available</option>
                 <option value="Unavailable">Unavailable</option>
                 <option value="Complicated">Complicated</option>
               </select>
             </div>
             <button type="submit">save</button>
-            <button type="submit">done</button>
           </form>
         </section>
       </>
