@@ -40,7 +40,6 @@ class App extends React.Component {
 
     filterKeys.forEach(key => {
       returnItems = returnItems.filter(item => {
-        console.log(item[key]);
         if (item[key]) {
           return item[key]
             .toLowerCase()
@@ -50,6 +49,19 @@ class App extends React.Component {
         }
       });
     });
+
+    if (activeFilters.availability) {
+      returnItems = returnItems.filter(item => {
+        if (
+          item.availability.toLowerCase() ===
+          activeFilters.availability.toLowerCase()
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+    }
 
     this.setState({
       filteredItems: returnItems
