@@ -69,6 +69,9 @@ class ViewItemPage extends React.Component {
             delete
           </button>
         </section>
+        <Link to={`/view/`}>
+          <button type="button">back</button>
+        </Link>
       </>
     );
   }
