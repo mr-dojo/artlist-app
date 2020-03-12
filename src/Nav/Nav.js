@@ -9,11 +9,11 @@ class Nav extends React.Component {
         <Link to={`/`}>
           <button type="button">home</button>
         </Link>
-        <Link to={`/add`}>
-          <button type="button">add</button>
-        </Link>
         <Link to={`/view`}>
           <button type="button">all</button>
+        </Link>
+        <Link to={`/add`}>
+          <button type="button">add</button>
         </Link>
       </nav>
     );
