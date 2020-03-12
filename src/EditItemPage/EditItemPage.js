@@ -66,7 +66,7 @@ class EditItemPage extends React.Component {
       })
       .then(response => {
         this.context.updateItem(item_id, response[0]);
-        this.props.history.push(`/view/${response[0].id}`);
+        this.props.history.push(`/view/`);
       })
       .catch(err => {
         throw new Error(err);
@@ -193,7 +193,7 @@ class EditItemPage extends React.Component {
                   })
                 }
               >
-                <option value={this.state.editItem.availability || "Available"}>
+                <option value={this.state.editItem.availability || ""}>
                   {this.state.editItem.availability || ""}
                 </option>
                 <option value="Available">Available</option>
