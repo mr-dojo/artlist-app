@@ -15,14 +15,21 @@ class ViewPage extends React.Component {
   }
   renderFilterDetails = () => {
     const details = Object.keys(this.state.activeFilters);
-    return details.map((detail, key) => (
-      <li className="add-filter-detail" key={key}>
-        <p>
-          <span className="filter-detail-name">{detail}</span>: "
-          {this.state.activeFilters[detail]}"
-        </p>
-      </li>
-    ));
+    return (
+      <section>
+        <h2>active filters:</h2>
+        <ul className="filter-list">
+          {details.map((detail, key) => (
+            <li className="add-filter-detail" key={key}>
+              <p>
+                <span className="filter-detail-name">{detail}</span>: "
+                {this.state.activeFilters[detail]}"
+              </p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    );
   };
 
   renderItemDetails = item => {
@@ -153,13 +160,14 @@ class ViewPage extends React.Component {
                 <option value="Complicated">Complicated</option>
               </select>
             </div>
-            <button type="submit">save</button>
+            <button type="submit">filter </button>
           </form>
         </section>
-        <section>
-          <h2>active filters:</h2>
-          <ul className="filter-list">{this.renderFilterDetails()}</ul>
-        </section>
+        <>
+          {Object.keys(this.state.activeFilters).length === 0
+            ? ""
+            : this.renderFilterDetails()}
+        </>
         <section>
           <ul className="view-list">{this.renderViewList(itemsToUse)}</ul>
         </section>
