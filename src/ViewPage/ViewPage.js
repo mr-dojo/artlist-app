@@ -30,8 +30,8 @@ class ViewPage extends React.Component {
       item[detail] ? (
         <li className="view-item-detail" key={key}>
           <p>
-            <span className="view-item-detail-name">{detail}</span>: "
-            {item[detail]}"
+            <span className="view-item-detail-name">{detail}</span>:{" "}
+            {item[detail]}
           </p>
         </li>
       ) : (
@@ -43,21 +43,20 @@ class ViewPage extends React.Component {
   renderViewList = items => {
     return items.map((item, i) => {
       return (
-        <li className="view-list-item" key={i}>
-          <h2>"{item.title}"</h2>
-          <ul className="view-item-details-list">
-            {this.renderItemDetails(item)}
-          </ul>
-          <Link to={`/view/${item.id}`}>
-            <button type="button">view</button>
-          </Link>
-          <Link to={`/edit/${item.id}`}>
-            <button type="button">edit</button>
-          </Link>
-          <button type="delete" onClick={e => this.handleDelete(e, item.id)}>
-            delete
-          </button>
-        </li>
+        <Link to={`/view/${item.id}`}>
+          <li className="view-list-item" key={i}>
+            <h2>"{item.title}"</h2>
+            <ul className="view-item-details-list">
+              {this.renderItemDetails(item)}
+            </ul>
+            <Link to={`/edit/${item.id}`}>
+              <button type="button">edit</button>
+            </Link>
+            <button type="delete" onClick={e => this.handleDelete(e, item.id)}>
+              delete
+            </button>
+          </li>
+        </Link>
       );
     });
   };
@@ -127,48 +126,23 @@ class ViewPage extends React.Component {
           <form onSubmit={e => this.handleFilterSubmit(e)}>
             <div className="add-filter-input-box">
               <label htmlFor="title">title</label>
-              <input
-                type="text"
-                name="title"
-                placeholder="title of item"
-                id="title"
-              ></input>
+              <input type="text" name="title" id="title"></input>
             </div>
             <div className="add-item-input-box">
               <label htmlFor="description">description</label>
-              <input
-                type="text"
-                name="description"
-                placeholder="eg: green turtle"
-                id="description"
-              ></input>
+              <input type="text" name="description" id="description"></input>
             </div>
             <div className="add-item-input-box">
               <label htmlFor="size">size</label>
-              <input
-                type="text"
-                name="size"
-                placeholder={`eg: 22" x 18"`}
-                id="size"
-              ></input>
+              <input type="text" name="size" id="size"></input>
             </div>
             <div className="add-item-input-box">
               <label htmlFor="medium">medium</label>
-              <input
-                type="text"
-                name="medium"
-                placeholder="eg: iron sculpture"
-                id="medium"
-              ></input>
+              <input type="text" name="medium" id="medium"></input>
             </div>
             <div className="add-item-input-box">
               <label htmlFor="location">location</label>
-              <input
-                type="text"
-                name="location"
-                placeholder="eg: SoAndSo Gallery Paia, HI"
-                id="location"
-              ></input>
+              <input type="text" name="location" id="location"></input>
             </div>
             <div className="add-item-input-box">
               <label htmlFor="availability">availability</label>
