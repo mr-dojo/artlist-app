@@ -6,15 +6,22 @@ class Nav extends React.Component {
   render() {
     return (
       <nav role="navigation">
-        <Link to={`/`}>
-          <button type="button">HOME</button>
-        </Link>
-        <Link to={`/view`}>
-          <button type="button">ALL</button>
-        </Link>
-        <Link to={`/add`}>
-          <button type="button">ADD</button>
-        </Link>
+        <div className="nav-name-container">
+          <p className="nav-app-name">Artlist</p>
+        </div>
+        <div className="nav-links">
+          <Link className="nav-link" to={`/`}>
+            about
+          </Link>
+          <p className="nav-link">|</p>
+          <Link className="nav-link" to={`/view`}>
+            all
+          </Link>
+          <p className="nav-link">|</p>
+          <Link className="nav-link" to={`/add`}>
+            add
+          </Link>
+        </div>
       </nav>
     );
   }

@@ -1,11 +1,39 @@
 nav {
   display: flex;
   position: fixed;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  padding: 1% 0;
-  background-color: #aaa;
+  padding: 0;
+  background-color: #f4530b;
+}
+
+.nav-link {
+  color: #5c190c;
+  margin-right: 10px;
+  font-size: 25px;
+  text-shadow: #f8b54c 0px 1px 3px;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+}
+
+div.nav-name-container {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  margin-right: 30px;
+  margin-bottom: -20px;
+}
+
+p.nav-app-name {
+  color: #f0f0f0;
+  font-size: 40px;
+  font-family: "Montserrat", sans-serif;
 }
