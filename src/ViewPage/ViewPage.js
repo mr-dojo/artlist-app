@@ -10,9 +10,69 @@ class ViewPage extends React.Component {
     super();
     this.state = {
       filteredItems: [],
-      activeFilters: {}
+      activeFilters: {},
+      filterSection: "button"
     };
   }
+
+  renderFilterSection = () => {
+    const filterSection = this.state.filterSection;
+    if (filterSection === "button") {
+      return (
+        <button
+          type="button"
+          onClick={e => this.setState({ filterSection: "choose a filter" })}
+        >
+          add filter
+        </button>
+      );
+    } else if (filterSection === "choose a filter") {
+      return (
+        <div className="add-filter-input-box">
+          <label htmlFor="add-filter">filter by:</label>
+          <select
+            id="filter-type"
+            onChange={e => this.setState({ filterSection: e.target.value })}
+          >
+            <option value="" hidden>
+              choose one
+            </option>
+            <option value="title">title</option>
+            <option value="description">description</option>
+            <option value="size">size</option>
+            <option value="medium">medium</option>
+            <option value="location">location</option>
+            <option value="availability">availability</option>
+          </select>
+        </div>
+      );
+    } else if (filterSection === "availability") {
+      return (
+        <form onSubmit={e => this.handleFilterSubmit(e)}>
+          <div className="add-item-input-box">
+            <label htmlFor="availability">availability</label>
+            <select id="availability" name="availability">
+              <option value="Available">Available</option>
+              <option value="Unavailable">Unavailable</option>
+              <option value="Complicated">Complicated</option>
+            </select>
+            <button type="submit">filter </button>
+          </div>
+        </form>
+      );
+    } else {
+      return (
+        <form onSubmit={e => this.handleFilterSubmit(e)}>
+          <div className="add-filter-input-box">
+            <label htmlFor={filterSection}>{filterSection}</label>
+            <input type="text" name={filterSection} id={filterSection}></input>
+          </div>
+          <button type="submit">filter </button>
+        </form>
+      );
+    }
+  };
+
   renderFilterDetails = () => {
     const details = Object.keys(this.state.activeFilters);
     return (
@@ -28,6 +88,14 @@ class ViewPage extends React.Component {
             </li>
           ))}
         </ul>
+        <button
+          type="button"
+          onClick={e => {
+            this.setState({ activeFilters: {} });
+          }}
+        >
+          clear
+        </button>
       </section>
     );
   };
@@ -50,20 +118,20 @@ class ViewPage extends React.Component {
   renderViewList = items => {
     return items.map((item, i) => {
       return (
-        <Link to={`/view/${item.id}`}>
-          <li className="view-list-item" key={i}>
+        <li className="view-list-item" key={i}>
+          <Link to={`/view/${item.id}`} key={i}>
             <h2>"{item.title}"</h2>
             <ul className="view-item-details-list">
               {this.renderItemDetails(item)}
             </ul>
-            <Link to={`/edit/${item.id}`}>
-              <button type="button">edit</button>
-            </Link>
-            <button type="delete" onClick={e => this.handleDelete(e, item.id)}>
-              delete
-            </button>
-          </li>
-        </Link>
+          </Link>
+          <Link to={`/edit/${item.id}`}>
+            <button type="button">edit</button>
+          </Link>
+          <button type="delete" onClick={e => this.handleDelete(e, item.id)}>
+            delete
+          </button>
+        </li>
       );
     });
   };
@@ -91,25 +159,49 @@ class ViewPage extends React.Component {
   handleFilterSubmit = e => {
     e.preventDefault();
 
-    let allFilters = {
-      title: e.target.title.value || undefined,
-      description: e.target.description.value || undefined,
-      size: e.target.size.value || undefined,
-      medium: e.target.medium.value || undefined,
-      location: e.target.location.value || undefined,
-      availability: e.target.availability.value || undefined
+    const targetName = () => {
+      if (e.target.medium) {
+        return e.target.medium.name;
+      } else if (e.target.title) {
+        return e.target.title.name;
+      } else if (e.target.description) {
+        return e.target.description.name;
+      } else if (e.target.location) {
+        return e.target.location.name;
+      } else if (e.target.size) {
+        return e.target.size.name;
+      } else if (e.target.availability) {
+        return e.target.availability.name;
+      }
     };
 
-    let noNullFilters = {};
-
-    Object.keys(allFilters).forEach(key => {
-      if (allFilters[key] !== undefined || null) {
-        noNullFilters[key] = allFilters[key];
+    const targetValue = () => {
+      if (e.target.medium) {
+        return e.target.medium.value;
+      } else if (e.target.title) {
+        return e.target.title.value;
+      } else if (e.target.description) {
+        return e.target.description.value;
+      } else if (e.target.location) {
+        return e.target.location.value;
+      } else if (e.target.size) {
+        return e.target.size.value;
+      } else if (e.target.availability) {
+        return e.target.availability.value;
       }
-    });
+    };
 
-    this.setState({
-      activeFilters: noNullFilters
+    let allFilters = {
+      ...this.state.activeFilters
+    };
+
+    allFilters[targetName()] = targetValue();
+
+    this.setState(() => {
+      return {
+        activeFilters: allFilters,
+        filterSection: "button"
+      };
     });
 
     this.context.itemsFilter(allFilters, this.context.items);
@@ -128,41 +220,7 @@ class ViewPage extends React.Component {
         <header role="banner">
           <h1>all items</h1>
         </header>
-        <section>
-          <h2>add filter:</h2>
-          <form onSubmit={e => this.handleFilterSubmit(e)}>
-            <div className="add-filter-input-box">
-              <label htmlFor="title">title</label>
-              <input type="text" name="title" id="title"></input>
-            </div>
-            <div className="add-item-input-box">
-              <label htmlFor="description">description</label>
-              <input type="text" name="description" id="description"></input>
-            </div>
-            <div className="add-item-input-box">
-              <label htmlFor="size">size</label>
-              <input type="text" name="size" id="size"></input>
-            </div>
-            <div className="add-item-input-box">
-              <label htmlFor="medium">medium</label>
-              <input type="text" name="medium" id="medium"></input>
-            </div>
-            <div className="add-item-input-box">
-              <label htmlFor="location">location</label>
-              <input type="text" name="location" id="location"></input>
-            </div>
-            <div className="add-item-input-box">
-              <label htmlFor="availability">availability</label>
-              <select id="availability">
-                <option value=""></option>
-                <option value="Available">Available</option>
-                <option value="Unavailable">Unavailable</option>
-                <option value="Complicated">Complicated</option>
-              </select>
-            </div>
-            <button type="submit">filter </button>
-          </form>
-        </section>
+        <section>{this.renderFilterSection()}</section>
         <>
           {Object.keys(this.state.activeFilters).length === 0
             ? ""
