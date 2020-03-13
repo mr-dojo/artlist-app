@@ -5,50 +5,62 @@ function LandingPage(props) {
   return (
     <>
       <header role="banner">
-        <h1>Artlist</h1>
-        <h2>Helping artists organize</h2>
+        <h1 className="landing-page-header">Helping Artists Organize</h1>
       </header>
 
-      <section className="landing-page-section">
-        <h3>Why did I create Artlist?</h3>
+      <section className="landing-page-section landing-page-why">
+        <h2>Why did I create Artlist?</h2>
         <p className="landing-page-paragraph">
-          To help artists keep track of their work.
+          "As an artist, I live in a constant state of organized chaos. I
+          created Artlist to help myself, and artists like me, keep track of
+          their artwork."
         </p>
       </section>
 
-      <section className="landing-page-section">
-        <h3>How to use it</h3>
+      <section className="landing-page-section landing-page-how">
+        <h2>Get started with Artlist</h2>
+        <p className="landing-page-paragraph">
+          It's <strong className="landing-page-strong">super</strong> simple
+        </p>
         <ul>
           <li>
-            <p>- Store artwork titles along with details about each entry</p>
-          </li>
-          <li>
-            <p>
-              - View a list of all your artwork and organize it by the details
+            <p className="landing-page-paragraph">
+              1. Add artwork entries with as many details as you can
             </p>
           </li>
           <li>
-            <p>
-              - Create filtered lists of your artwork for your own reference
+            <p className="landing-page-paragraph">2. View your art archive</p>
+          </li>
+          <li>
+            <p className="landing-page-paragraph">
+              3. Filter what you see by the details you provided
             </p>
           </li>
         </ul>
       </section>
 
-      <section className="landing-page-section">
-        <h3>Upcoming Features</h3>
+      <section className="landing-page-section landing-page-upcoming">
+        <h2>Upcoming Features</h2>
         <ul className="landing-page-features-list">
           <li>
-            <p>- Create and export printable pdf's</p>
+            <p className="landing-page-paragraph">
+              - Create and export printable pdf's
+            </p>
           </li>
           <li>
-            <p>- Add images to art entries</p>
+            <p className="landing-page-paragraph">
+              - Add images to art entries
+            </p>
           </li>
           <li>
-            <p>- Create an account so your list is only visible by you</p>
+            <p className="landing-page-paragraph">
+              - Create an account so your archive is only visible by you
+            </p>
           </li>
           <li>
-            <p>- Save filter configurations to easily access specific lists</p>
+            <p className="landing-page-paragraph">
+              - Save filtered lists for later reference
+            </p>
           </li>
         </ul>
       </section>
