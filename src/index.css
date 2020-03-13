@@ -1,8 +1,8 @@
 * {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Montserrat", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 0;
@@ -13,13 +13,19 @@
   list-style: none;
 }
 
+p {
+  font-family: "Roboto", sans-serif;
+}
+
 h1 {
   font-size: 30px;
+  font-family: "Montserrat", san-serif;
 }
 
 h2 {
   font-size: 25px;
   margin: 5px;
+  font-family: "Montserrat", san-serif;
 }
 
 h3 {
@@ -27,9 +33,15 @@ h3 {
   margin: 2px;
 }
 
+strong {
+  font-weight: bolder;
+}
+
 button {
   margin: 1px;
   padding: 5px;
+  width: 80px;
+  height: 40px;
 }
 
 option,
@@ -50,7 +62,7 @@ label {
 
 section {
   padding: 20px 5px 20px 5px;
-  background-color: #bbb;
+  background-color: #f0f0f0;
 }
 
 code {
@@ -59,7 +71,7 @@ code {
 }
 
 section:nth-child(even) {
-  background-color: #ddd;
+  background-color: #d2d2d0;
 }
 
 header {

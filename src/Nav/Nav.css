@@ -15,8 +15,22 @@ nav {
 .nav-link {
   color: #5c190c;
   margin-right: 10px;
+  font-family: "Montserrat", sans-serif;
   font-size: 25px;
-  text-shadow: #f8b54c 0px 1px 3px;
+  text-shadow: #f0f0f0 0px 0px 4px;
+}
+
+:hover.nav-link {
+  color: #f0f0f0;
+  text-shadow: black 0px 0px 0px;
+}
+
+.nav-link-divider {
+  cursor: default;
+  color: #5c190c;
+  margin-right: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
 }
 
 .nav-links {

@@ -13,11 +13,11 @@ class Nav extends React.Component {
           <Link className="nav-link" to={`/`}>
             about
           </Link>
-          <p className="nav-link">|</p>
+          <p className="nav-link-divider">|</p>
           <Link className="nav-link" to={`/view`}>
             all
           </Link>
-          <p className="nav-link">|</p>
+          <p className="nav-link-divider">|</p>
           <Link className="nav-link" to={`/add`}>
             add
           </Link>
