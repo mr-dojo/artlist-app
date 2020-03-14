@@ -19,17 +19,33 @@ class ViewPage extends React.Component {
     const filterSection = this.state.filterSection;
     if (filterSection === "button") {
       return (
-        <button
-          type="button"
-          onClick={e => this.setState({ filterSection: "choose a filter" })}
-        >
-          add filter
-        </button>
+        <>
+          <button
+            type="button"
+            className="filter-button"
+            onClick={e => this.setState({ filterSection: "choose a filter" })}
+          >
+            apply filter
+          </button>
+          {Object.keys(this.state.activeFilters).length !== 0 ? (
+            <button
+              type="button"
+              className="filter-button"
+              onClick={e => {
+                this.setState({ activeFilters: {} });
+              }}
+            >
+              clear filters
+            </button>
+          ) : (
+            ""
+          )}
+        </>
       );
     } else if (filterSection === "choose a filter") {
       return (
         <div className="add-filter-input-box">
-          <label htmlFor="add-filter">filter by:</label>
+          <label htmlFor="add-filter" aria-label={filterSection}></label>
           <select
             id="filter-type"
             onChange={e => this.setState({ filterSection: e.target.value })}
@@ -48,26 +64,36 @@ class ViewPage extends React.Component {
       );
     } else if (filterSection === "availability") {
       return (
-        <form onSubmit={e => this.handleFilterSubmit(e)}>
-          <div className="add-item-input-box">
-            <label htmlFor="availability">availability</label>
-            <select id="availability" name="availability">
-              <option value="Available">Available</option>
-              <option value="Unavailable">Unavailable</option>
-              <option value="Complicated">Complicated</option>
-            </select>
-            <button type="submit">filter </button>
-          </div>
+        <form
+          className="add-item-filter-box"
+          onSubmit={e => this.handleFilterSubmit(e)}
+        >
+          <label htmlFor="availability" aria-label="availability"></label>
+          <select id="availability" name="availability">
+            <option value="Available">Available</option>
+            <option value="Unavailable">Unavailable</option>
+            <option value="Complicated">Complicated</option>
+          </select>
+          <button className="filter-button" type="submit">
+            filter{" "}
+          </button>
         </form>
       );
     } else {
       return (
         <form onSubmit={e => this.handleFilterSubmit(e)}>
           <div className="add-filter-input-box">
-            <label htmlFor={filterSection}>{filterSection}</label>
-            <input type="text" name={filterSection} id={filterSection}></input>
+            <label htmlFor={filterSection} aria-label={filterSection}></label>
+            <input
+              type="text"
+              placeholder={filterSection}
+              name={filterSection}
+              id={filterSection}
+            ></input>
+            <button className="filter-button" type="submit">
+              filter{" "}
+            </button>
           </div>
-          <button type="submit">filter </button>
         </form>
       );
     }
@@ -76,43 +102,37 @@ class ViewPage extends React.Component {
   renderFilterDetails = () => {
     const details = Object.keys(this.state.activeFilters);
     return (
-      <section>
-        <h2>active filters:</h2>
+      <>
+        <h2>Showing items filtered by:</h2>
         <ul className="filter-list">
           {details.map((detail, key) => (
-            <li className="add-filter-detail" key={key}>
-              <p>
+            <li key={key}>
+              <p className="view-item-detail-p">
                 <span className="filter-detail-name">{detail}</span>: "
                 {this.state.activeFilters[detail]}"
               </p>
             </li>
           ))}
         </ul>
-        <button
-          type="button"
-          onClick={e => {
-            this.setState({ activeFilters: {} });
-          }}
-        >
-          clear
-        </button>
-      </section>
+      </>
     );
   };
 
   renderItemDetails = item => {
-    return Object.keys(item).map((detail, key) =>
-      item[detail] ? (
-        <li className="view-item-detail" key={key}>
-          <p>
-            <span className="view-item-detail-name">{detail}</span>:{" "}
-            {item[detail]}
-          </p>
-        </li>
-      ) : (
-        ""
-      )
-    );
+    return Object.keys(item).map((detail, key) => {
+      if (item[detail] && detail !== "id" && detail !== "title") {
+        return (
+          <li className="view-item-detail" key={key}>
+            <p className="view-item-detail-p">
+              <span className="view-item-detail-name">{detail}</span>:{" "}
+              {item[detail]}
+            </p>
+          </li>
+        );
+      } else {
+        return "";
+      }
+    });
   };
 
   renderViewList = items => {
@@ -120,17 +140,11 @@ class ViewPage extends React.Component {
       return (
         <li className="view-list-item" key={i}>
           <Link to={`/view/${item.id}`} key={i}>
-            <h2>"{item.title}"</h2>
+            <h2 className="item-title">"{item.title}"</h2>
             <ul className="view-item-details-list">
               {this.renderItemDetails(item)}
             </ul>
           </Link>
-          <Link to={`/edit/${item.id}`}>
-            <button type="button">edit</button>
-          </Link>
-          <button type="delete" onClick={e => this.handleDelete(e, item.id)}>
-            delete
-          </button>
         </li>
       );
     });
@@ -218,15 +232,18 @@ class ViewPage extends React.Component {
     return (
       <ErrorCheck>
         <header role="banner">
-          <h1>all items</h1>
+          <>
+            {Object.keys(this.state.activeFilters).length === 0 ? (
+              <h1>all items</h1>
+            ) : (
+              this.renderFilterDetails()
+            )}
+          </>
         </header>
-        <section>{this.renderFilterSection()}</section>
-        <>
-          {Object.keys(this.state.activeFilters).length === 0
-            ? ""
-            : this.renderFilterDetails()}
-        </>
         <section>
+          <div className="add-filter-container">
+            {this.renderFilterSection()}
+          </div>
           <ul className="view-list">{this.renderViewList(itemsToUse)}</ul>
         </section>
       </ErrorCheck>

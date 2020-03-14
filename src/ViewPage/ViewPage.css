@@ -1,21 +1,65 @@
-ul.filter-list {
-  padding-left: 0px;
-}
-
-.filter-detail-name {
-  font-weight: bold;
-}
-
 ul.view-list {
   padding-left: 0px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 li.view-list-item {
-  border: solid 1px black;
-  width: 250px;
-  padding: 5px;
-  margin: 5px;
+  padding: 10px;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 5px 5px 5px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: #5c190c 0px 1px 2px;
+}
+
+:hover.view-list-item {
+  box-shadow: black 0px 0px 1px;
+}
+
+li.view-item-detail {
+  text-align: left;
+}
+
+p.view-item-detail-p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h2.item-title {
+  color: #5c190c;
+  font-size: 25px;
+}
+
+div.add-filter-container {
+  margin-bottom: 20px;
+}
+
+button.filter-button {
+  border: 0;
+  border-radius: 5px;
+  color: #5c190c;
+  width: 130px;
+  height: 40px;
+  background-color: #f4530b;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: #f0f0f0 0 0 4px;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+}
+
+:hover.add-filter-button {
+  font-weight: lighter;
+}
+
+ul.filter-list {
+  padding-left: 0;
+}
+
+.filter-detail-name {
+  font-weight: bold;
+  font-size: 16px;
 }
