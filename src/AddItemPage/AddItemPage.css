@@ -28,7 +28,7 @@ button.save-button {
   background-color: #f4530b;
   font-size: 20px;
   font-weight: bold;
-  text-shadow: #f0f0f0 0 0 4px;
+  text-shadow: #f0f0f0 0 0 20px;
   font-family: "Montserrat", sans-serif;
   cursor: pointer;
 }

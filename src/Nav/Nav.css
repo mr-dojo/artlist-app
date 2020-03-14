@@ -16,13 +16,13 @@ nav {
   color: #5c190c;
   margin-right: 10px;
   font-family: "Montserrat", sans-serif;
-  font-size: 25px;
-  text-shadow: #f0f0f0 0px 0px 4px;
+  font-size: 20px;
+  text-shadow: #f0f0f0 0 0 20px;
 }
 
 :hover.nav-link {
-  color: #f0f0f0;
-  text-shadow: black 0px 0px 0px;
+  text-shadow: #f0f0f0 0 0 20px;
+  color: black;
 }
 
 .nav-link-divider {
@@ -30,7 +30,7 @@ nav {
   color: #5c190c;
   margin-right: 10px;
   font-family: "Montserrat", sans-serif;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .nav-links {
@@ -43,11 +43,11 @@ div.nav-name-container {
   align-items: flex-end;
   height: 100%;
   margin-right: 30px;
-  margin-bottom: -20px;
+  margin-bottom: -22px;
 }
 
 p.nav-app-name {
-  color: #f0f0f0;
-  font-size: 40px;
+  color: white;
+  font-size: 36px;
   font-family: "Montserrat", sans-serif;
 }
