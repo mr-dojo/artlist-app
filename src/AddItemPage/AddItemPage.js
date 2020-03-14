@@ -75,40 +75,78 @@ class AddItemPage extends React.Component {
         <section>
           <h2>add details:</h2>
           <form onSubmit={e => this.handleNewItemSubmit(e)}>
-            <div className="add-item-input-box">
-              <label htmlFor="title">*title</label>
-              <input type="text" name="title" id="title" required></input>
+            <div className="add-item-input-container">
+              <label htmlFor="title" aria-label="input title"></label>
+              <input
+                type="text"
+                placeholder="title (required)"
+                name="title"
+                id="title"
+                required
+              ></input>
             </div>
-            <div className="add-item-input-box">
-              <label htmlFor="description">description</label>
-              <input type="text" name="description" id="description"></input>
+            <div className="add-item-input-container">
+              <label
+                htmlFor="description"
+                aria-label="input description"
+              ></label>
+              <input
+                type="text"
+                placeholder="description"
+                name="description"
+                id="description"
+              ></input>
             </div>
-            <div className="add-item-input-box">
-              <label htmlFor="size">size</label>
-              <input type="text" name="size" id="size"></input>
+            <div className="add-item-input-container">
+              <label htmlFor="size" aria-label="input size"></label>
+              <input
+                type="text"
+                placeholder="size"
+                name="size"
+                id="size"
+              ></input>
             </div>
-            <div className="add-item-input-box">
-              <label htmlFor="price">price</label>
-              <input type="number" name="price" id="price"></input>
+            <div className="add-item-input-container">
+              <label htmlFor="price" aria-label="input price"></label>
+              <input
+                type="number"
+                placeholder="price"
+                name="price"
+                id="price"
+              ></input>
             </div>
-            <div className="add-item-input-box">
-              <label htmlFor="medium">medium</label>
-              <input type="text" name="medium" id="medium"></input>
+            <div className="add-item-input-container">
+              <label htmlFor="medium" aria-label="input medium"></label>
+              <input
+                type="text"
+                placeholder="medium"
+                name="medium"
+                id="medium"
+              ></input>
             </div>
-            <div className="add-item-input-box">
-              <label htmlFor="location">location</label>
-              <input type="text" name="location" id="location"></input>
+            <div className="add-item-input-container">
+              <label htmlFor="location" aria-label="input location"></label>
+              <input
+                type="text"
+                placeholder="location"
+                name="location"
+                id="location"
+              ></input>
             </div>
-            <div className="add-item-input-box">
-              <label htmlFor="availability">availability</label>
-              <select id="availability">
-                <option value=""></option>
+            <div className="add-item-input-container">
+              <label
+                htmlFor="availability"
+                aria-label="input availability"
+              ></label>
+              <select id="availability" placeholder="availability">
                 <option value="Available">Available</option>
                 <option value="Unavailable">Unavailable</option>
                 <option value="Complicated">Complicated</option>
               </select>
             </div>
-            <button type="submit">save</button>
+            <button className="save-button" type="submit">
+              save
+            </button>
           </form>
         </section>
       </>
