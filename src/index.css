@@ -43,6 +43,25 @@ button {
   padding: 5px;
   width: 80px;
   height: 40px;
+  border: 0;
+  border-radius: 5px;
+  color: #5c190c;
+  width: 130px;
+  height: 40px;
+  background-color: #f4530b;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: #f0f0f0 0 0 10px;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+}
+
+button:hover {
+  color: black;
+}
+
+button:active {
+  box-shadow: #f4530b 0 0 15px;
 }
 
 form {

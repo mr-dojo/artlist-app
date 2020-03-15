@@ -2,7 +2,7 @@ import React from "react";
 import StoreContext from "../StoreContext";
 import { API_ENDPOINT } from "../config";
 import { findItem } from "../item-helper";
-import "../AddItemPage/AddItemPage.css";
+import "../EditItemPage/EditItemPage.css";
 
 class EditItemPage extends React.Component {
   constructor() {
@@ -59,7 +59,6 @@ class EditItemPage extends React.Component {
     })
       .then(response => {
         if (!response.ok) {
-          console.log("yup, its running alright.. crap");
           return response.json().then(error => Promise.reject(error));
         }
         return response.json();
@@ -82,14 +81,14 @@ class EditItemPage extends React.Component {
           <h1>{this.state.editItem.title}</h1>
         </header>
         <section>
-          <h2>add details:</h2>
+          <h2>change details:</h2>
           <form onSubmit={e => this.handleItemSubmit(e)}>
-            <div className="add-item-input-box">
+            <div className="edit-item-input-box">
               <label htmlFor="title">title</label>
               <input
                 type="text"
                 name="title"
-                placeholder="title of item"
+                placeholder="title"
                 id="title"
                 value={this.state.editItem.title || ""}
                 onChange={e =>
@@ -99,12 +98,12 @@ class EditItemPage extends React.Component {
                 }
               ></input>
             </div>
-            <div className="add-item-input-box">
+            <div className="edit-item-input-box">
               <label htmlFor="description">description</label>
               <input
                 type="text"
                 name="description"
-                placeholder="eg: green turtle"
+                placeholder="description"
                 id="description"
                 value={this.state.editItem.description || ""}
                 onChange={e =>
@@ -117,12 +116,12 @@ class EditItemPage extends React.Component {
                 }
               ></input>
             </div>
-            <div className="add-item-input-box">
+            <div className="edit-item-input-box">
               <label htmlFor="size">size</label>
               <input
                 type="text"
                 name="size"
-                placeholder={`eg: 22" x 18"`}
+                placeholder={`size`}
                 id="size"
                 value={this.state.editItem.size || ""}
                 onChange={e =>
@@ -132,12 +131,12 @@ class EditItemPage extends React.Component {
                 }
               ></input>
             </div>
-            <div className="add-item-input-box">
+            <div className="edit-item-input-box">
               <label htmlFor="price">price</label>
               <input
                 type="number"
                 name="price"
-                placeholder="eg: 256.99"
+                placeholder="price"
                 id="price"
                 value={this.state.editItem.price || ""}
                 onChange={e =>
@@ -147,12 +146,12 @@ class EditItemPage extends React.Component {
                 }
               ></input>
             </div>
-            <div className="add-item-input-box">
+            <div className="edit-item-input-box">
               <label htmlFor="medium">medium</label>
               <input
                 type="text"
                 name="medium"
-                placeholder="eg: iron sculpture"
+                placeholder="medium"
                 id="medium"
                 value={this.state.editItem.medium || ""}
                 onChange={e =>
@@ -162,12 +161,12 @@ class EditItemPage extends React.Component {
                 }
               ></input>
             </div>
-            <div className="add-item-input-box">
+            <div className="edit-item-input-box">
               <label htmlFor="location">location</label>
               <input
                 type="text"
                 name="location"
-                placeholder="eg: SoAndSo Gallery HI"
+                placeholder="location"
                 id="location"
                 value={this.state.editItem.location || ""}
                 onChange={e =>
@@ -180,7 +179,7 @@ class EditItemPage extends React.Component {
                 }
               ></input>
             </div>
-            <div className="add-item-input-box">
+            <div className="edit-item-input-box">
               <label htmlFor="availability">availability</label>
               <select
                 id="availability"
@@ -193,16 +192,14 @@ class EditItemPage extends React.Component {
                   })
                 }
               >
-                <option value={this.state.editItem.availability || ""}>
-                  {this.state.editItem.availability || ""}
-                </option>
                 <option value="Available">Available</option>
                 <option value="Unavailable">Unavailable</option>
                 <option value="Complicated">Complicated</option>
               </select>
             </div>
-            <button type="submit">save</button>
-            <button type="delete">delete</button>
+            <button type="submit" className="save-button">
+              save
+            </button>
           </form>
         </section>
       </>

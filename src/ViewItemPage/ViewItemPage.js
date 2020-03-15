@@ -21,7 +21,7 @@ class ViewItemPage extends React.Component {
     return Object.keys(item).map((detail, key) => (
       <li className="item-detail-container" key={key}>
         <span className="view-item-detail-name">{detail}</span>:
-        <p>"{item[detail]}"</p>
+        <p>{item[detail]}</p>
       </li>
     ));
   };

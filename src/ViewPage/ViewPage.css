@@ -12,11 +12,15 @@ li.view-list-item {
   margin: 0 5px 5px 5px;
   border-radius: 5px;
   background-color: white;
-  box-shadow: #5c190c 0px 1px 2px;
+  box-shadow: #5c190c 0 1px 2px;
 }
 
 :hover.view-list-item {
-  box-shadow: black 0px 0px 1px;
+  box-shadow: #f4530b 0 0 7px;
+}
+
+:active.view-list-item {
+  box-shadow: #f4530b 0 0 15px;
 }
 
 li.view-item-detail {
@@ -35,24 +39,6 @@ h2.item-title {
 
 div.add-filter-container {
   margin-bottom: 20px;
-}
-
-button.filter-button {
-  border: 0;
-  border-radius: 5px;
-  color: #5c190c;
-  width: 130px;
-  height: 40px;
-  background-color: #f4530b;
-  font-size: 20px;
-  font-weight: bold;
-  text-shadow: #f0f0f0 0 0 10px;
-  font-family: "Montserrat", sans-serif;
-  cursor: pointer;
-}
-
-:hover.filter-button {
-  color: black;
 }
 
 ul.filter-list {

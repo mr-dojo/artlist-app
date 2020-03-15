@@ -1,0 +1,8 @@
+div.edit-item-input-box {
+  display: flex;
+  flex-direction: column;
+}
+
+button.save-button {
+  margin-top: 10px;
+}
