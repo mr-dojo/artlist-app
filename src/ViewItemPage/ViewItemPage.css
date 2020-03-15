@@ -1,3 +1,33 @@
 .view-item-detail-name {
   font-weight: bold;
 }
+
+.view-item-details {
+  padding: 10px;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 5px 5px 5px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: #5c190c 0px 1px 2px;
+}
+
+.item-detail-container {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+button.item-button {
+  border: 0;
+  border-radius: 5px;
+  color: #5c190c;
+  width: 130px;
+  height: 40px;
+  background-color: #f4530b;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: #f0f0f0 0 0 10px;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+}

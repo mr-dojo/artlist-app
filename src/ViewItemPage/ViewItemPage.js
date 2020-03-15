@@ -19,11 +19,9 @@ class ViewItemPage extends React.Component {
     const item = findItem(this.context.items, item_id);
 
     return Object.keys(item).map((detail, key) => (
-      <li className="view-item-detail" key={key}>
-        <p>
-          <span className="view-item-detail-name">{detail}</span>: "
-          {item[detail]}"
-        </p>
+      <li className="item-detail-container" key={key}>
+        <span className="view-item-detail-name">{detail}</span>:
+        <p>"{item[detail]}"</p>
       </li>
     ));
   };
@@ -59,19 +57,29 @@ class ViewItemPage extends React.Component {
         </header>
         <section>
           <h2>item details:</h2>
-          <ul className="view-item-details-list">
+          <ul className="view-item-details">
             {this.renderItemDetails(item_id)}
           </ul>
-          <Link to={`/edit/${item_id}`}>
-            <button type="button">edit</button>
-          </Link>
-          <button type="delete" onClick={e => this.handleDelete(e, item_id)}>
-            delete
-          </button>
+          <div>
+            <Link to={`/view/`}>
+              <button className="item-button" type="button">
+                back
+              </button>
+            </Link>
+            <Link to={`/edit/${item_id}`}>
+              <button className="item-button" type="button">
+                edit
+              </button>
+            </Link>
+            <button
+              className="item-button"
+              type="delete"
+              onClick={e => this.handleDelete(e, item_id)}
+            >
+              delete
+            </button>
+          </div>
         </section>
-        <Link to={`/view/`}>
-          <button type="button">back</button>
-        </Link>
       </>
     );
   }
