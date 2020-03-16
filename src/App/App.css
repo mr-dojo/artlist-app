@@ -1,3 +1,7 @@
 .App {
   text-align: center;
 }
+
+.backlit-text {
+  text-shadow: #f0f0f0 0 0 10px;
+}

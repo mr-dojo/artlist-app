@@ -9,7 +9,7 @@ function LandingPage(props) {
       </header>
 
       <section className="landing-page-section landing-page-why">
-        <h2>Why did I create Artlist?</h2>
+        <h2 className="backlit-text">Why did I create Artlist?</h2>
         <p className="landing-page-paragraph">
           "As an artist, I live in a constant state of organized chaos. I
           created Artlist to help myself, and artists like me, keep track of
@@ -18,7 +18,7 @@ function LandingPage(props) {
       </section>
 
       <section className="landing-page-section landing-page-how">
-        <h2>Get started with Artlist</h2>
+        <h2 className="backlit-text">Get started with Artlist</h2>
         <p className="landing-page-paragraph">
           It's <strong className="landing-page-strong">super</strong> simple
         </p>
@@ -40,7 +40,7 @@ function LandingPage(props) {
       </section>
 
       <section className="landing-page-section landing-page-upcoming">
-        <h2>Upcoming Features</h2>
+        <h2 className="backlit-text">Upcoming Features</h2>
         <ul className="landing-page-features-list">
           <li>
             <p className="landing-page-paragraph">

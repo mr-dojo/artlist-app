@@ -73,7 +73,7 @@ class AddItemPage extends React.Component {
       <>
         <header role="banner">{this.renderItemTitle()}</header>
         <section>
-          <h2>add details:</h2>
+          <h2 className="backlit-text">add details:</h2>
           <form onSubmit={e => this.handleNewItemSubmit(e)}>
             <div className="add-item-input-container">
               <label htmlFor="title" aria-label="input title"></label>

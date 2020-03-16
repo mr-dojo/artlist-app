@@ -50,7 +50,7 @@ class ViewItemPage extends React.Component {
 
   render() {
     const { item_id } = this.props.match.params;
-    return (
+    return this.context.items.length ? (
       <>
         <header role="banner">
           <h1>{findItem(this.context.items, item_id).title}</h1>
@@ -81,6 +81,8 @@ class ViewItemPage extends React.Component {
           </div>
         </section>
       </>
+    ) : (
+      ""
     );
   }
 }

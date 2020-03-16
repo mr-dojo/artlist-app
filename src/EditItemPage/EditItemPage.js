@@ -81,7 +81,7 @@ class EditItemPage extends React.Component {
           <h1>{this.state.editItem.title}</h1>
         </header>
         <section>
-          <h2>change details:</h2>
+          <h2 className="backlit-text">change details:</h2>
           <form onSubmit={e => this.handleItemSubmit(e)}>
             <div className="edit-item-input-box">
               <label htmlFor="title">title</label>
