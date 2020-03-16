@@ -14,7 +14,6 @@ nav {
 
 .nav-link {
   color: #5c190c;
-  margin-right: 10px;
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
   text-shadow: #f0f0f0 0 0 20px;
@@ -29,6 +28,7 @@ nav {
   cursor: default;
   color: #5c190c;
   margin-right: 10px;
+  margin-left: 10px;
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
 }
@@ -43,11 +43,24 @@ div.nav-name-container {
   align-items: flex-end;
   height: 100%;
   margin-right: 30px;
-  margin-bottom: -18px;
+  align-items: center;
+}
+
+@media only screen and (min-width: 700px) {
+  div.nav-name-container {
+    flex-grow: 1;
+    margin-left: 50px;
+  }
+
+  div.nav-links {
+    flex-grow: 1;
+    justify-content: center;
+  }
 }
 
 p.nav-app-name {
   color: white;
   font-size: 36px;
   font-family: "Montserrat", sans-serif;
+  text-shadow: #5c190c 0 0 20px;
 }
