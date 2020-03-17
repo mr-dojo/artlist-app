@@ -7,7 +7,9 @@ class Nav extends React.Component {
     return (
       <nav role="navigation">
         <div className="nav-name-container">
-          <p className="nav-app-name">Artlist</p>
+          <Link className="nav-link" to={`/view`}>
+            <p className="nav-app-name">Artlist</p>
+          </Link>
         </div>
         <div className="nav-links">
           <Link className="nav-link" to={`/`}>
