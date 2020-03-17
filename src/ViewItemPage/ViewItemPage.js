@@ -57,7 +57,7 @@ class ViewItemPage extends React.Component {
         </header>
         <section>
           <h2>item details:</h2>
-          <ul className="view-item-details">
+          <ul className="view-item-details desktop-expand">
             {this.renderItemDetails(item_id)}
           </ul>
           <div>
