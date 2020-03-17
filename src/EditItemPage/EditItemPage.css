@@ -6,3 +6,17 @@ div.edit-item-input-box {
 button.save-button {
   margin-top: 10px;
 }
+
+@media only screen and (min-width: 500px) {
+  div.edit-item-input-box {
+    width: 330px;
+  }
+
+  .grow {
+    width: 100%;
+  }
+
+  .form-grow {
+    width: 80%;
+  }
+}

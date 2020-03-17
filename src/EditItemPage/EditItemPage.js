@@ -82,10 +82,11 @@ class EditItemPage extends React.Component {
         </header>
         <section>
           <h2 className="backlit-text">change details:</h2>
-          <form onSubmit={e => this.handleItemSubmit(e)}>
-            <div className="edit-item-input-box">
+          <form className="grow" onSubmit={e => this.handleItemSubmit(e)}>
+            <div className="edit-item-input-box desktop-expand">
               <label htmlFor="title">title</label>
               <input
+                className="grow"
                 type="text"
                 name="title"
                 placeholder="title"
@@ -93,14 +94,18 @@ class EditItemPage extends React.Component {
                 value={this.state.editItem.title || ""}
                 onChange={e =>
                   this.setState({
-                    editItem: { ...this.state.editItem, title: e.target.value }
+                    editItem: {
+                      ...this.state.editItem,
+                      title: e.target.value
+                    }
                   })
                 }
               ></input>
             </div>
-            <div className="edit-item-input-box">
+            <div className="edit-item-input-box desktop-expand">
               <label htmlFor="description">description</label>
               <input
+                className="grow"
                 type="text"
                 name="description"
                 placeholder="description"
@@ -116,9 +121,10 @@ class EditItemPage extends React.Component {
                 }
               ></input>
             </div>
-            <div className="edit-item-input-box">
+            <div className="edit-item-input-box desktop-expand">
               <label htmlFor="size">size</label>
               <input
+                className="grow"
                 type="text"
                 name="size"
                 placeholder={`size`}
@@ -131,9 +137,10 @@ class EditItemPage extends React.Component {
                 }
               ></input>
             </div>
-            <div className="edit-item-input-box">
+            <div className="edit-item-input-box desktop-expand">
               <label htmlFor="price">price</label>
               <input
+                className="grow"
                 type="number"
                 name="price"
                 placeholder="price"
@@ -141,14 +148,18 @@ class EditItemPage extends React.Component {
                 value={this.state.editItem.price || ""}
                 onChange={e =>
                   this.setState({
-                    editItem: { ...this.state.editItem, price: e.target.value }
+                    editItem: {
+                      ...this.state.editItem,
+                      price: e.target.value
+                    }
                   })
                 }
               ></input>
             </div>
-            <div className="edit-item-input-box">
+            <div className="edit-item-input-box desktop-expand">
               <label htmlFor="medium">medium</label>
               <input
+                className="grow"
                 type="text"
                 name="medium"
                 placeholder="medium"
@@ -156,14 +167,18 @@ class EditItemPage extends React.Component {
                 value={this.state.editItem.medium || ""}
                 onChange={e =>
                   this.setState({
-                    editItem: { ...this.state.editItem, medium: e.target.value }
+                    editItem: {
+                      ...this.state.editItem,
+                      medium: e.target.value
+                    }
                   })
                 }
               ></input>
             </div>
-            <div className="edit-item-input-box">
+            <div className="edit-item-input-box desktop-expand">
               <label htmlFor="location">location</label>
               <input
+                className="grow"
                 type="text"
                 name="location"
                 placeholder="location"
@@ -179,9 +194,10 @@ class EditItemPage extends React.Component {
                 }
               ></input>
             </div>
-            <div className="edit-item-input-box">
+            <div className="edit-item-input-box desktop-expand">
               <label htmlFor="availability">availability</label>
               <select
+                className="grow"
                 id="availability"
                 onChange={e =>
                   this.setState({
