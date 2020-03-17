@@ -5,3 +5,19 @@
 .backlit-text {
   text-shadow: #f0f0f0 0 0 10px;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 800px) {
+  .desktop-expand {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 700px;
+  }
+}
