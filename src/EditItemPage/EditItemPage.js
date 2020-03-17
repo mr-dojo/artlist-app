@@ -75,7 +75,7 @@ class EditItemPage extends React.Component {
   static contextType = StoreContext;
 
   render() {
-    return (
+    return this.context.items.length ? (
       <>
         <header role="banner">
           <h1>{this.state.editItem.title}</h1>
@@ -219,6 +219,8 @@ class EditItemPage extends React.Component {
           </form>
         </section>
       </>
+    ) : (
+      ""
     );
   }
 }
