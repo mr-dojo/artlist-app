@@ -12,7 +12,7 @@ class AddItemPage extends React.Component {
   }
   renderItemTitle = () =>
     Object.keys(this.state.newItem).length ? (
-      <h1>"{this.state.newItem.title}"</h1>
+      <h1>{this.state.newItem.title}</h1>
     ) : (
       <h1>new item</h1>
     );
@@ -29,8 +29,8 @@ class AddItemPage extends React.Component {
       availability: e.target.availability.value || null
     };
 
+    // this removes empty values from req body
     const itemDetailsKeys = Object.keys(allDetails);
-
     const deleteNullKeys = () => {
       for (let i = 0; i < itemDetailsKeys.length; i++) {
         if (allDetails[itemDetailsKeys[i]] === null) {
@@ -38,7 +38,6 @@ class AddItemPage extends React.Component {
         }
       }
     };
-
     deleteNullKeys();
 
     fetch(`${API_ENDPOINT}/list`, {

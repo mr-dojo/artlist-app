@@ -37,8 +37,8 @@ class EditItemPage extends React.Component {
       availability: this.state.editItem.availability
     };
 
+    // this removes empty input values from req body
     const itemDetailsKeys = Object.keys(allDetails);
-
     const deleteNullKeys = () => {
       for (let i = 0; i < itemDetailsKeys.length; i++) {
         if (allDetails[itemDetailsKeys[i]] === null) {
@@ -46,8 +46,8 @@ class EditItemPage extends React.Component {
         }
       }
     };
-
     deleteNullKeys();
+
     const { item_id } = this.props.match.params;
 
     fetch(`${API_ENDPOINT}/list/${item_id}`, {

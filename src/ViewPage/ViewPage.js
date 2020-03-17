@@ -2,7 +2,6 @@ import React from "react";
 import StoreContext from "../StoreContext";
 import { Link } from "react-router-dom";
 import ErrorCheck from "../ErrorCheck";
-import { API_ENDPOINT } from "../config";
 import "./ViewPage.css";
 
 class ViewPage extends React.Component {
@@ -148,26 +147,6 @@ class ViewPage extends React.Component {
         </li>
       );
     });
-  };
-
-  handleDelete = (e, item_id) => {
-    e.preventDefault();
-    fetch(`${API_ENDPOINT}/list/${item_id}`, {
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json"
-      }
-    })
-      .then(res => {
-        if (!res.ok) return res.json().then(e => new Error(e));
-        return;
-      })
-      .then(() => {
-        this.context.deleteItem(item_id);
-      })
-      .catch(error => {
-        console.error({ error });
-      });
   };
 
   handleFilterSubmit = e => {

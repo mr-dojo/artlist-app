@@ -102,8 +102,8 @@ class App extends React.Component {
   render() {
     const contextValue = {
       items: this.state.items,
-      itemsFilter: this.itemsFilter,
       filteredItems: this.state.filteredItems,
+      itemsFilter: this.itemsFilter,
       addNewItem: this.addNewItem,
       deleteItem: this.deleteItem,
       updateItem: this.updateItem
