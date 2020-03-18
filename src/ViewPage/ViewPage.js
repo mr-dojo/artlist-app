@@ -14,6 +14,38 @@ class ViewPage extends React.Component {
     };
   }
 
+  renderItemDetails = item => {
+    return Object.keys(item).map((detail, key) => {
+      if (item[detail] && detail !== "id" && detail !== "title") {
+        return (
+          <li className="view-item-detail" key={key}>
+            <p className="view-item-detail-p">
+              <span className="view-item-detail-name">{detail}</span>:{" "}
+              {item[detail]}
+            </p>
+          </li>
+        );
+      } else {
+        return "";
+      }
+    });
+  };
+
+  renderViewList = items => {
+    return items.map((item, i) => {
+      return (
+        <li className="view-list-item" key={i}>
+          <Link to={`/view/${item.id}`} key={i}>
+            <h2 className="item-title">"{item.title}"</h2>
+            <ul className="view-item-details-list">
+              {this.renderItemDetails(item)}
+            </ul>
+          </Link>
+        </li>
+      );
+    });
+  };
+
   cancelFilterButton = () => {
     return (
       <button
@@ -132,38 +164,6 @@ class ViewPage extends React.Component {
         </ul>
       </>
     );
-  };
-
-  renderItemDetails = item => {
-    return Object.keys(item).map((detail, key) => {
-      if (item[detail] && detail !== "id" && detail !== "title") {
-        return (
-          <li className="view-item-detail" key={key}>
-            <p className="view-item-detail-p">
-              <span className="view-item-detail-name">{detail}</span>:{" "}
-              {item[detail]}
-            </p>
-          </li>
-        );
-      } else {
-        return "";
-      }
-    });
-  };
-
-  renderViewList = items => {
-    return items.map((item, i) => {
-      return (
-        <li className="view-list-item" key={i}>
-          <Link to={`/view/${item.id}`} key={i}>
-            <h2 className="item-title">"{item.title}"</h2>
-            <ul className="view-item-details-list">
-              {this.renderItemDetails(item)}
-            </ul>
-          </Link>
-        </li>
-      );
-    });
   };
 
   handleFilterSubmit = e => {

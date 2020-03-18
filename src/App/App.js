@@ -79,7 +79,7 @@ class App extends React.Component {
 
   deleteItem = item_id => {
     const itemsAfterDelete = this.state.items.filter(
-      item => item.id !== item_id
+      item => parseInt(item.id) !== parseInt(item_id)
     );
     this.setState({
       items: [...itemsAfterDelete]

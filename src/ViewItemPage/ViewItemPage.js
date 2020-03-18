@@ -28,7 +28,6 @@ class ViewItemPage extends React.Component {
 
   handleDelete = (e, item_id) => {
     e.preventDefault();
-    console.log(API_ENDPOINT);
     fetch(`${API_ENDPOINT}/list/${item_id}`, {
       method: "DELETE",
       headers: {
@@ -40,8 +39,8 @@ class ViewItemPage extends React.Component {
         return;
       })
       .then(() => {
-        this.context.deleteItem(item_id);
         this.props.history.push(`/view`);
+        this.context.deleteItem(item_id);
       })
       .catch(error => {
         console.error({ error });
