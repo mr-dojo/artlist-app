@@ -13,7 +13,8 @@ import "./App.css";
 class App extends React.Component {
   state = {
     items: [],
-    filteredItems: []
+    filteredItems: [],
+    activeFilters: {}
   };
 
   componentDidMount() {
@@ -99,11 +100,17 @@ class App extends React.Component {
     });
   };
 
+  changeFilters = currentFilters => {
+    this.setState({ activeFilters: currentFilters });
+  };
+
   render() {
     const contextValue = {
       items: this.state.items,
-      itemsFilter: this.itemsFilter,
       filteredItems: this.state.filteredItems,
+      activeFilters: this.state.activeFilters,
+      itemsFilter: this.itemsFilter,
+      changeFilters: this.changeFilters,
       addNewItem: this.addNewItem,
       deleteItem: this.deleteItem,
       updateItem: this.updateItem
