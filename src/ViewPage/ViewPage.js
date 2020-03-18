@@ -14,6 +14,20 @@ class ViewPage extends React.Component {
     };
   }
 
+  cancelFilterButton = () => {
+    return (
+      <button
+        type="button"
+        className="filter-button"
+        onClick={e => {
+          this.setState({ filterSection: "button" });
+        }}
+      >
+        cancel
+      </button>
+    );
+  };
+
   renderFilterSection = () => {
     const filterSection = this.state.filterSection;
     if (filterSection === "button") {
@@ -59,6 +73,7 @@ class ViewPage extends React.Component {
             <option value="location">location</option>
             <option value="availability">availability</option>
           </select>
+          {this.cancelFilterButton()}
         </div>
       );
     } else if (filterSection === "availability") {
@@ -74,8 +89,9 @@ class ViewPage extends React.Component {
             <option value="Complicated">Complicated</option>
           </select>
           <button className="filter-button" type="submit">
-            filter{" "}
+            apply{" "}
           </button>
+          {this.cancelFilterButton()}
         </form>
       );
     } else {
@@ -85,13 +101,14 @@ class ViewPage extends React.Component {
             <label htmlFor={filterSection} aria-label={filterSection}></label>
             <input
               type="text"
-              placeholder={filterSection}
+              placeholder={`enter ${filterSection}`}
               name={filterSection}
               id={filterSection}
             ></input>
             <button className="filter-button" type="submit">
-              filter{" "}
+              apply{" "}
             </button>
+            {this.cancelFilterButton()}
           </div>
         </form>
       );
