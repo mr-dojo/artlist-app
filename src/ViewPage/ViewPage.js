@@ -40,12 +40,12 @@ class ViewPage extends React.Component {
           >
             apply filter
           </button>
-          {Object.keys(this.state.activeFilters).length !== 0 ? (
+          {Object.keys(this.context.activeFilters).length !== 0 ? (
             <button
               type="button"
               className="filter-button"
               onClick={e => {
-                this.setState({ activeFilters: {} });
+                this.context.changeFilters({});
               }}
             >
               clear filters
@@ -116,7 +116,7 @@ class ViewPage extends React.Component {
   };
 
   renderFilterDetails = () => {
-    const details = Object.keys(this.state.activeFilters);
+    const details = Object.keys(this.context.activeFilters);
     return (
       <>
         <h2>Showing items filtered by:</h2>
@@ -125,7 +125,7 @@ class ViewPage extends React.Component {
             <li key={key}>
               <p className="view-item-detail-p">
                 <span className="filter-detail-name">{detail}</span>: "
-                {this.state.activeFilters[detail]}"
+                {this.context.activeFilters[detail]}"
               </p>
             </li>
           ))}
@@ -202,14 +202,15 @@ class ViewPage extends React.Component {
     };
 
     let allFilters = {
-      ...this.state.activeFilters
+      ...this.context.activeFilters
     };
 
     allFilters[targetName()] = targetValue();
 
+    this.context.changeFilters(allFilters);
+
     this.setState(() => {
       return {
-        activeFilters: allFilters,
         filterSection: "button"
       };
     });
@@ -221,7 +222,7 @@ class ViewPage extends React.Component {
 
   render() {
     const { items, filteredItems } = this.context;
-    const itemsToUse = Object.keys(this.state.activeFilters).length
+    const itemsToUse = Object.keys(this.context.activeFilters).length
       ? filteredItems
       : items;
 
@@ -229,7 +230,7 @@ class ViewPage extends React.Component {
       <ErrorCheck>
         <header role="banner">
           <>
-            {Object.keys(this.state.activeFilters).length === 0 ? (
+            {Object.keys(this.context.activeFilters).length === 0 ? (
               <h1>all items</h1>
             ) : (
               this.renderFilterDetails()
