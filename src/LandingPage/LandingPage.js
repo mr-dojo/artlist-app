@@ -68,7 +68,13 @@ function LandingPage(props) {
       <section>
         <h3>After you are finished looking around..</h3>
         <p>Please take 5 min to fill out this survey </p>
-        <a href="https://forms.gle/tvykpNnGvvqngxXT6">-Link to survey-</a>
+        <a
+          href="https://forms.gle/tvykpNnGvvqngxXT6"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          -Link to survey-
+        </a>
       </section>
     </>
   );
