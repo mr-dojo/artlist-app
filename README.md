@@ -12,32 +12,32 @@ This app allows you to create custom lists of art for yourself and clients. Orga
 ### Add an item to your list
 
 1. From any page, click "add"
-   ![](/images/artlist-screenshot-add.jpg)
+   ![](./images/artlist-screenshot-add.jpg)
 2. Enter a title and as many details as you can then click "save"
-   ![](/images/artlist-screenshot-input-new.jpg)
+   ![](./images/artlist-screenshot-input-new.jpg)
 
 ### Find items in your list
 
 1. From any page, click "all"
-   ![](/images/artlist-screenshot-all.jpg)
+   ![](./images/artlist-screenshot-all.jpg)
 2. Click "add filter"
-   ![](/images/artlist-screenshot-add-filter.jpg)
+   ![](./images/artlist-screenshot-add-filter.jpg)
 3. Choose the filter type
-   ![](/images/artlist-screenshot-choose-filter.jpg)
+   ![](./images/artlist-screenshot-choose-filter.jpg)
 4. Enter filter details and click "apply"
-   ![](/images/artlist-screenshot-input-filter-details.jpg)
+   ![](./images/artlist-screenshot-input-filter-details.jpg)
 5. Continue to add filters until satisfied
 
 ### Edit items in your list
 
 1. From any page, click "all"
-   ![](images/artlist-screenshot-all.jpg)
+   ![](./images/artlist-screenshot-all.jpg)
 2. Click the title of the item you want to edit
-   ![](images/artlist-screenshot-view-item.jpg)
+   ![](./images/artlist-screenshot-view-item.jpg)
 3. Scroll to the bottom and click "edit"
-   ![](images/artlist-screenshot-edit.jpg)
+   ![](./images/artlist-screenshot-edit.jpg)
 4. Input new details and click "save"
-   ![](images/artlist-screenshot-input-edits.jpg)
+   ![](./images/artlist-screenshot-input-edits.jpg)
 
 ## Endpoints
 
