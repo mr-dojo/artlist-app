@@ -16,13 +16,13 @@ This app allows you to create custom lists of art for yourself and clients. Orga
 
 ### Find items in your list
 
-1. From any page, click "all"
+1. From any page, click "all"\
    ![](images/artlist-screenshot-all.JPG)
-2. Click "add filter"
+2. Click "add filter"\
    ![](images/artlist-screenshot-add-filter.JPG)
-3. Choose the filter type
+3. Choose the filter type\
    ![](images/artlist-screenshot-choose-filter.JPG)
-4. Enter filter details and click "apply"
+4. Enter filter details and click "apply"\
    ![](images/artlist-screenshot-input-filter-details.JPG)
 5. Continue to add filters until satisfied
 
