@@ -11,10 +11,8 @@ This app allows you to create custom lists of art for yourself and clients. Orga
 
 ### Add an item to your list
 
-1. From any page, click "add"
-   ![](./images/artlist-screenshot-add.jpg)
-2. Enter a title and as many details as you can then click "save"
-   ![](./images/artlist-screenshot-input-new.jpg)
+1. From any page, click "add" ![](./images/artlist-screenshot-add.jpg)
+2. Enter a title and as many details as you can then click "save" ![](./images/artlist-screenshot-input-new.jpg)
 
 ### Find items in your list
 
