@@ -14,6 +14,7 @@ class ViewPage extends React.Component {
     };
   }
 
+  // renders details about each item
   renderItemDetails = item => {
     return Object.keys(item).map((detail, key) => {
       if (item[detail] && detail !== "id" && detail !== "title") {
@@ -31,6 +32,7 @@ class ViewPage extends React.Component {
     });
   };
 
+  // renders all the items
   renderViewList = items => {
     return items.map((item, i) => {
       return (
@@ -60,6 +62,7 @@ class ViewPage extends React.Component {
     );
   };
 
+  // decides what to render in the filter section based on state
   renderFilterSection = () => {
     const filterSection = this.state.filterSection;
     if (filterSection === "button") {
@@ -147,6 +150,7 @@ class ViewPage extends React.Component {
     }
   };
 
+  // renders all active filters
   renderFilterDetails = () => {
     const details = Object.keys(this.context.activeFilters);
     return (
@@ -207,6 +211,7 @@ class ViewPage extends React.Component {
 
     allFilters[targetName()] = targetValue();
 
+    //updates activeFilters in context
     this.context.changeFilters(allFilters);
 
     this.setState(() => {
@@ -215,6 +220,7 @@ class ViewPage extends React.Component {
       };
     });
 
+    //updates filteredItems in context
     this.context.itemsFilter(allFilters, this.context.items);
   };
 

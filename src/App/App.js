@@ -33,6 +33,7 @@ class App extends React.Component {
       });
   }
 
+  // filters items and updates context.filteredItems
   itemsFilter = (activeFilters, items) => {
     let returnItems = [...items];
     let filterKeys = Object.keys(activeFilters);

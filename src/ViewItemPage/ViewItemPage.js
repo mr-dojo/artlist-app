@@ -14,7 +14,7 @@ class ViewItemPage extends React.Component {
       params: {}
     }
   };
-
+  // renders details for the item
   renderItemDetails = item_id => {
     const item = findItem(this.context.items, item_id);
 
